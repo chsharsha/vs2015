@@ -19,7 +19,9 @@
             {
                 zerofour.Add(item.Trim());
             }
-            if (zerofour.Any(x => x.Equals(pivotValue)))                return true;            else                return false;    }        public string GetRandomRecord(Random r)
+            if (zerofour.Any(x => x.Equals(pivotValue)))
+            {                 return true;
+            }            else                return false;    }        public string GetRandomRecord(Random r)
         {
             string sb="";
             
