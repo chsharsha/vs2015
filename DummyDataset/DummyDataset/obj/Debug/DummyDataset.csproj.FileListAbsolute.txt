@@ -1,0 +1,6 @@
+c:\users\lee\documents\visual studio 2015\Projects\DummyDataset\DummyDataset\bin\Debug\DummyDataset.exe.config
+c:\users\lee\documents\visual studio 2015\Projects\DummyDataset\DummyDataset\bin\Debug\DummyDataset.exe
+c:\users\lee\documents\visual studio 2015\Projects\DummyDataset\DummyDataset\bin\Debug\DummyDataset.pdb
+c:\users\lee\documents\visual studio 2015\Projects\DummyDataset\DummyDataset\obj\Debug\DummyDataset.csprojResolveAssemblyReference.cache
+c:\users\lee\documents\visual studio 2015\Projects\DummyDataset\DummyDataset\obj\Debug\DummyDataset.exe
+c:\users\lee\documents\visual studio 2015\Projects\DummyDataset\DummyDataset\obj\Debug\DummyDataset.pdb

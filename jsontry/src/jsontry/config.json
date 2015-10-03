@@ -1,0 +1,10 @@
+{
+  "AppSettings": {
+    "SiteTitle": "jsontry"
+  },
+  "Data": {
+    "DefaultConnection": {
+      "ConnectionString": "Server=(localdb)\\mssqllocaldb;Database=aspnet5-jsontry-30afa25d-0f78-4cf3-8bfb-02ead92a2f5a;Trusted_Connection=True;MultipleActiveResultSets=true"
+    }
+  }
+}
