@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using InformationSecurityScorecard.WebApplication.Models;
 namespace InformationSecurityScorecard.WebApplication.Controllers
 {
+
+
+
 
     //public class BaseController : Controller
     //{
@@ -26,25 +29,23 @@ namespace InformationSecurityScorecard.WebApplication.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            string user = "";
-            if (Session["LoggedinUser"]!=null)
-                            {
-                user = Session["LoggedinUser"].ToString();
+            PreRequestCheckList.AuthenticateRequest(Request);
 
-            }
-            if(user.Equals("In"))
+            if (Session["LoggedinUser"] != null)
             {
-               return View();
+                var a = Session["LoggedinUser"].ToString();
+                return View();
             }
+
             else
             {
                 return View("Error");
             }
-            
         }
 
         public ActionResult Error()
         {
+            
             Exception ex =(Exception) RouteData.Values["error"];
             ViewBag.ErrorMsg = ex.Message;
             return View();

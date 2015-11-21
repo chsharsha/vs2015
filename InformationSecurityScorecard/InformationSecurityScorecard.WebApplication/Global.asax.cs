@@ -27,43 +27,43 @@ namespace InformationSecurityScorecard.WebApplication
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
 
-        protected void Application_AcquireRequestState(object sender, EventArgs e)
-        {
-            HttpContext context = HttpContext.Current;
-            if (context != null && context.Session != null)
-            {
-                context.Session["LoggedinUser"] = "In";
-            }
-        }
+        //protected void Application_AcquireRequestState(object sender, EventArgs e)
+        //{
+        //    HttpContext context = HttpContext.Current;
+        //    if (context != null && context.Session != null)
+        //    {
+        //        context.Session["LoggedinUser"] = "In";
+        //    }
+        //}
 
-        protected void Application_BeginRequest(object sender, EventArgs e)
-        {
+        //protected void Application_BeginRequest(object sender, EventArgs e)
+        //{
 
-            HttpRequest hr = Context.Request;
+        //    HttpRequest hr = Context.Request;
 
-            if (hr.QueryString.HasKeys())
-            {
-                if (SQLKeywords.Any(x => hr.RawUrl.ToLower().Contains(x.Trim().ToLower())))
-                {
-                    throw new Exception("Illegal character sequence characters in url");
-                }
-                if (!PreRequestCheckList.IsValidRequest(hr))
-                {
-                    throw new Exception("Incorrect arguments passed in the query string");
-                }
-                if (!PreRequestCheckList.IsParamsCountCorrect(hr))
-                {
-                    throw new Exception("Incorrect number of arguments passed in the query string");
-                }
+        //    if (hr.QueryString.HasKeys())
+        //    {
+        //        if (SQLKeywords.Any(x => hr.RawUrl.ToLower().Contains(x.Trim().ToLower())))
+        //        {
+        //            throw new Exception("Illegal character sequence characters in url");
+        //        }
+        //        if (!PreRequestCheckList.IsValidRequest(hr))
+        //        {
+        //            throw new Exception("Incorrect arguments passed in the query string");
+        //        }
+        //        if (!PreRequestCheckList.IsParamsCountCorrect(hr))
+        //        {
+        //            throw new Exception("Incorrect number of arguments passed in the query string");
+        //        }
 
 
-            }
-            else
-            {
-                throw new Exception("Application doesnt have query strings");
-            }
+        //    }
+        //    else
+        //    {
+        //        throw new Exception("Application doesnt have query strings");
+        //    }
 
-        }
+        //}
 
         protected void Application_Error(object sender, EventArgs e)
         {

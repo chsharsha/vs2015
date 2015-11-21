@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InformationSecurityScorecar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InformationSecurityScorecard.WebApplication", "InformationSecurityScorecard.WebApplication\InformationSecurityScorecard.WebApplication.csproj", "{646D1406-4C37-4580-9BF9-D2259E395804}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InformationSecurityScorecard.CommunicationModule", "InformationSecurityScorecard.CommunicationModule\InformationSecurityScorecard.CommunicationModule.csproj", "{2C81F1CB-E934-4863-877F-6AED43F0953A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{646D1406-4C37-4580-9BF9-D2259E395804}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{646D1406-4C37-4580-9BF9-D2259E395804}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{646D1406-4C37-4580-9BF9-D2259E395804}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C81F1CB-E934-4863-877F-6AED43F0953A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C81F1CB-E934-4863-877F-6AED43F0953A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C81F1CB-E934-4863-877F-6AED43F0953A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C81F1CB-E934-4863-877F-6AED43F0953A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

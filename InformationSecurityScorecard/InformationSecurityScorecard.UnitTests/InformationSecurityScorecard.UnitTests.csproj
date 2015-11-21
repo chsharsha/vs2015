@@ -50,6 +50,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="CommunicationTest.cs" />
     <Compile Include="LoggerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -57,6 +58,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\InformationSecurityScorecard.CommunicationModule\InformationSecurityScorecard.CommunicationModule.csproj">
+      <Project>{2c81f1cb-e934-4863-877f-6aed43f0953a}</Project>
+      <Name>InformationSecurityScorecard.CommunicationModule</Name>
+    </ProjectReference>
     <ProjectReference Include="..\InformationSecurityScorecard.Logging\InformationSecurityScorecard.Logging.csproj">
       <Project>{49b11c9f-d99c-40ba-93bd-430f108e8151}</Project>
       <Name>InformationSecurityScorecard.Logging</Name>
