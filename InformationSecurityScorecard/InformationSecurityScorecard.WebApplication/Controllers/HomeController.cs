@@ -13,6 +13,7 @@ namespace InformationSecurityScorecard.WebApplication.Controllers
         {
             if(Request.QueryString.HasKeys())
             {
+                if(Request.QueryString.Keys.)
                 return View();
             }
             else
