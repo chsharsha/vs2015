@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InformationSecurityScorecard.Logging", "InformationSecurityScorecard.Logging\InformationSecurityScorecard.Logging.csproj", "{49B11C9F-D99C-40BA-93BD-430F108E8151}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{DEB12A9C-4C57-4D57-80E0-FDFE081D4552}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InformationSecurityScorecard.UnitTests", "InformationSecurityScorecard.UnitTests\InformationSecurityScorecard.UnitTests.csproj", "{72CB2BBB-77F4-45AC-95DF-4FA79653EE8B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{49B11C9F-D99C-40BA-93BD-430F108E8151}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49B11C9F-D99C-40BA-93BD-430F108E8151}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49B11C9F-D99C-40BA-93BD-430F108E8151}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49B11C9F-D99C-40BA-93BD-430F108E8151}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72CB2BBB-77F4-45AC-95DF-4FA79653EE8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72CB2BBB-77F4-45AC-95DF-4FA79653EE8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72CB2BBB-77F4-45AC-95DF-4FA79653EE8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72CB2BBB-77F4-45AC-95DF-4FA79653EE8B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{72CB2BBB-77F4-45AC-95DF-4FA79653EE8B} = {DEB12A9C-4C57-4D57-80E0-FDFE081D4552}
+	EndGlobalSection
+EndGlobal
