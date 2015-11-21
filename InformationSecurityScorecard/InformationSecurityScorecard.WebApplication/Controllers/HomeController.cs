@@ -6,15 +6,35 @@ using System.Web.Mvc;
 
 namespace InformationSecurityScorecard.WebApplication.Controllers
 {
+
+    //public class BaseController : Controller
+    //{
+    //    protected override void OnActionExecuting(ActionExecutingContext filterContext)
+    //    {
+    //        base.OnActionExecuting(filterContext);
+
+    //        // If the current user is authenticated, check to make sure the user's
+    //        // profile has been loaded into session
+    //        if (HttpContext.Session["LoggedinUser"] == null)
+    //        {
+    //            Session["LoggedinUser"] = "In";
+    //        }
+    //    }
+    //}
     public class HomeController : Controller
     {
         // GET: Home
         public ActionResult Index()
         {
-            if(Request.QueryString.HasKeys())
+            string user = "";
+            if (Session["LoggedinUser"]!=null)
+                            {
+                user = Session["LoggedinUser"].ToString();
+
+            }
+            if(user.Equals("In"))
             {
-                if(Request.QueryString.Keys.)
-                return View();
+               return View();
             }
             else
             {
@@ -25,7 +45,11 @@ namespace InformationSecurityScorecard.WebApplication.Controllers
 
         public ActionResult Error()
         {
+            Exception ex =(Exception) RouteData.Values["error"];
+            ViewBag.ErrorMsg = ex.Message;
             return View();
         }
+
+        
     }
 }
