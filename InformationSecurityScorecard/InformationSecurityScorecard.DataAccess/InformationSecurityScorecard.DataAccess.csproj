@@ -87,6 +87,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>InfoSecScorecardDB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="ListAllOrganizations_Result.cs">
+      <DependentUpon>InfoSecScorecardDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Organization.cs">
       <DependentUpon>InfoSecScorecardDB.tt</DependentUpon>
     </Compile>

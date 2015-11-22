@@ -12,6 +12,8 @@ namespace InformationSecurityScorecard.DataAccess
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class InfoSecScorecardEntities : DbContext
     {
@@ -38,5 +40,10 @@ namespace InformationSecurityScorecard.DataAccess
         public virtual DbSet<Survey> Surveys { get; set; }
         public virtual DbSet<UserRole> UserRoles { get; set; }
         public virtual DbSet<User> Users { get; set; }
+    
+        public virtual ObjectResult<ListAllOrganizations_Result> ListAllOrganizations()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ListAllOrganizations_Result>("ListAllOrganizations");
+        }
     }
 }

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="InfoSecScorecardModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="InfoSecScorecardModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AnswerInstance">
           <Key>
             <PropertyRef Name="Answer_InstanceId" />
@@ -266,6 +266,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="ListAllOrganizations" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="InfoSecScorecardModelStoreContainer">
           <EntitySet Name="AnswerInstance" EntityType="Self.AnswerInstance" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Answers" EntityType="Self.Answers" Schema="dbo" store:Type="Tables" />
@@ -325,8 +326,7 @@
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="InfoSecScorecardModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -671,7 +671,20 @@
             <End Role="UserRole" EntitySet="UserRoles" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
+          <FunctionImport Name="ListAllOrganizations" ReturnType="Collection(InfoSecScorecardModel.ListAllOrganizations_Result)" />
         </EntityContainer>
+        <ComplexType Name="ListAllOrganizations_Result">
+          <Property Type="Int32" Name="OrganizationId" Nullable="false" />
+          <Property Type="String" Name="Organization_Name" Nullable="false" MaxLength="35" />
+          <Property Type="String" Name="City" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="State" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Country" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="Date_Modified" Nullable="true" />
+          <Property Type="String" Name="Date_Modified_By" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="Date_Created" Nullable="true" />
+          <Property Type="String" Name="Date_Created_By" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="Survey_OrganizationId" Nullable="false" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -820,6 +833,22 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ListAllOrganizations" FunctionName="InfoSecScorecardModel.Store.ListAllOrganizations">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="InfoSecScorecardModel.ListAllOrganizations_Result">
+                <ScalarProperty Name="OrganizationId" ColumnName="OrganizationId" />
+                <ScalarProperty Name="Organization_Name" ColumnName="Organization_Name" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Date_Modified" ColumnName="Date_Modified" />
+                <ScalarProperty Name="Date_Modified_By" ColumnName="Date_Modified_By" />
+                <ScalarProperty Name="Date_Created" ColumnName="Date_Created" />
+                <ScalarProperty Name="Date_Created_By" ColumnName="Date_Created_By" />
+                <ScalarProperty Name="Survey_OrganizationId" ColumnName="Survey_OrganizationId" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

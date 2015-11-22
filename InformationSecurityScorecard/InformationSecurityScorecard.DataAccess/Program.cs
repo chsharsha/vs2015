@@ -10,6 +10,20 @@ namespace InformationSecurityScorecard.DataAccess
     {
         static void Main(string[] args)
         {
+            using (var db = new InfoSecScorecardEntities())
+            {
+
+                //var result = db.Database
+                // .SqlQuery<Org>("ListAllOrganizations @ClientId", -1)
+                // .ToList();
+            }
         }
+    }
+
+    public class Org
+    {
+        public int OrganizationId { get; set; }
+
+        public string Organization_Name { get; set; }
     }
 }
