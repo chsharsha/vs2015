@@ -12,7 +12,7 @@ namespace StreamReaderParser
         public string Name { get; set; }
 
         public string Ingredients { get; set; }
-        public string Creator { get; set;}
+        public string Creator { get; set; }
 
         public string RecipeCategory { get; set; }
         public string Url { get; set; }
@@ -39,7 +39,7 @@ namespace StreamReaderParser
             //ID,Name,Category,prepTime,cookTime,TotTime,Yields,Creator,Source,Ingredients,Description
             sb += r.ID + ",";
             sb += r.Name + ",";
-            sb +=ISOTimeParser.GetTimeinSeconds(r.PrepTime).ToString() + ",";
+            sb += ISOTimeParser.GetTimeinSeconds(r.PrepTime).ToString() + ",";
             sb += ISOTimeParser.GetTimeinSeconds(r.CookTime).ToString() + ",";
             sb += ISOTimeParser.GetTimeinSeconds(r.TotalTime).ToString() + ",";
             sb += r.RecipeYield + ",";
@@ -58,7 +58,7 @@ namespace StreamReaderParser
 
         public static Recipes EscapeSequences(Recipes r, params string[] parm)
         {
-            foreach(var a in parm.ToList())
+            foreach (var a in parm.ToList())
             {
                 r.Source = r.Source.Replace(a, string.Empty);
                 r.Name = r.Name.Replace(a, string.Empty);

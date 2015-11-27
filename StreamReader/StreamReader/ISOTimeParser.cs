@@ -12,7 +12,7 @@ namespace StreamReaderParser
         public static int GetTimeinSeconds(string text)
         {
             Regex pattern;
-            
+
             if (text.Contains('H') && text.Contains('M') && text.Contains('S'))
             {
                 pattern = new Regex(@"PT(?<noOfHours>\d+)H(?<noOfMinutes>\d+)M(?<noOfSeconds>\d+)S");
@@ -69,13 +69,13 @@ namespace StreamReaderParser
             }
 
             int totalTime = 0;
-            if(t.Hours!=0)
+            if (t.Hours != 0)
             {
-                totalTime+= t.Hours * 60 * 60;
+                totalTime += t.Hours * 60 * 60;
             }
-            if(t.Minutes!=0)
+            if (t.Minutes != 0)
             {
-                totalTime+= t.Minutes * 60;
+                totalTime += t.Minutes * 60;
             }
             if (t.Seconds != 0)
             {
