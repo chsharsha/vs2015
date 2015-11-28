@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="aaab8707ee8c4ea8bcea657caed782f7" Name="Diagram1">
+        <EntityTypeShape EntityType="InfoSecSurveyModel.AnswerInstance" Width="1.5" PointX="9.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="InfoSecSurveyModel.Answer" Width="1.5" PointX="7.5" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="InfoSecSurveyModel.Attachment" Width="1.5" PointX="10" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="InfoSecSurveyModel.Comment" Width="1.5" PointX="12" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InfoSecSurveyModel.Communication_Log" Width="1.5" PointX="7.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="InfoSecSurveyModel.Communication_Type" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InfoSecSurveyModel.Organization" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="InfoSecSurveyModel.Questionnaire" Width="1.5" PointX="5.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="InfoSecSurveyModel.Questionnaire_Instance" Width="1.5" PointX="7.5" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="InfoSecSurveyModel.Questionnaire_Section" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="InfoSecSurveyModel.Survey" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="InfoSecSurveyModel.UserRole" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="InfoSecSurveyModel.User" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="InfoSecSurveyModel.AnswerIns_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="InfoSecSurveyModel.AnswerIns_FK2" ManuallyRouted="false" />
+        <AssociationConnector Association="InfoSecSurveyModel.Comments_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="InfoSecSurveyModel.Attach_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="InfoSecSurveyModel.Organization_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="InfoSecSurveyModel.User_PK2" ManuallyRouted="false" />
+        <AssociationConnector Association="InfoSecSurveyModel.Question_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="InfoSecSurveyModel.QuestionIns_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="InfoSecSurveyModel.QuestionIns_FK2" ManuallyRouted="false" />
+        <AssociationConnector Association="InfoSecSurveyModel.Survey_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="InfoSecSurveyModel.User_PK1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

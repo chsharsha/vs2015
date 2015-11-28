@@ -10,7 +10,7 @@ namespace InformationSecurityScorecard.DataAccess
     {
         static void Main(string[] args)
         {
-            using (var db = new InfoSecScorecardEntities())
+            using (var db = new InfoSecSurveyEntities())
             {
 
                 //var result = db.Database

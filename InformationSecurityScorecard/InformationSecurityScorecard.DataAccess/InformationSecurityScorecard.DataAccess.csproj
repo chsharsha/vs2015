@@ -55,90 +55,87 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Answer.cs">
-      <DependentUpon>InfoSecScorecardDB.tt</DependentUpon>
+      <DependentUpon>InfoSecSurvey.tt</DependentUpon>
     </Compile>
     <Compile Include="AnswerInstance.cs">
-      <DependentUpon>InfoSecScorecardDB.tt</DependentUpon>
+      <DependentUpon>InfoSecSurvey.tt</DependentUpon>
     </Compile>
     <Compile Include="Attachment.cs">
-      <DependentUpon>InfoSecScorecardDB.tt</DependentUpon>
+      <DependentUpon>InfoSecSurvey.tt</DependentUpon>
     </Compile>
     <Compile Include="Comment.cs">
-      <DependentUpon>InfoSecScorecardDB.tt</DependentUpon>
+      <DependentUpon>InfoSecSurvey.tt</DependentUpon>
     </Compile>
     <Compile Include="Communication_Log.cs">
-      <DependentUpon>InfoSecScorecardDB.tt</DependentUpon>
+      <DependentUpon>InfoSecSurvey.tt</DependentUpon>
     </Compile>
     <Compile Include="Communication_Type.cs">
-      <DependentUpon>InfoSecScorecardDB.tt</DependentUpon>
+      <DependentUpon>InfoSecSurvey.tt</DependentUpon>
     </Compile>
-    <Compile Include="InfoSecScorecardDB.Context.cs">
+    <Compile Include="InfoSecSurvey.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>InfoSecScorecardDB.Context.tt</DependentUpon>
+      <DependentUpon>InfoSecSurvey.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="InfoSecScorecardDB.cs">
+    <Compile Include="InfoSecSurvey.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>InfoSecScorecardDB.tt</DependentUpon>
+      <DependentUpon>InfoSecSurvey.tt</DependentUpon>
     </Compile>
-    <Compile Include="InfoSecScorecardDB.Designer.cs">
+    <Compile Include="InfoSecSurvey.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>InfoSecScorecardDB.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="ListAllOrganizations_Result.cs">
-      <DependentUpon>InfoSecScorecardDB.tt</DependentUpon>
+      <DependentUpon>InfoSecSurvey.edmx</DependentUpon>
     </Compile>
     <Compile Include="Organization.cs">
-      <DependentUpon>InfoSecScorecardDB.tt</DependentUpon>
+      <DependentUpon>InfoSecSurvey.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Questionnaire.cs">
-      <DependentUpon>InfoSecScorecardDB.tt</DependentUpon>
+      <DependentUpon>InfoSecSurvey.tt</DependentUpon>
     </Compile>
     <Compile Include="Questionnaire_Instance.cs">
-      <DependentUpon>InfoSecScorecardDB.tt</DependentUpon>
+      <DependentUpon>InfoSecSurvey.tt</DependentUpon>
     </Compile>
     <Compile Include="Questionnaire_Section.cs">
-      <DependentUpon>InfoSecScorecardDB.tt</DependentUpon>
+      <DependentUpon>InfoSecSurvey.tt</DependentUpon>
     </Compile>
     <Compile Include="Survey.cs">
-      <DependentUpon>InfoSecScorecardDB.tt</DependentUpon>
+      <DependentUpon>InfoSecSurvey.tt</DependentUpon>
     </Compile>
     <Compile Include="User.cs">
-      <DependentUpon>InfoSecScorecardDB.tt</DependentUpon>
+      <DependentUpon>InfoSecSurvey.tt</DependentUpon>
     </Compile>
     <Compile Include="UserRole.cs">
-      <DependentUpon>InfoSecScorecardDB.tt</DependentUpon>
+      <DependentUpon>InfoSecSurvey.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="InfoSecScorecardDB.edmx">
+    <EntityDeploy Include="InfoSecSurvey.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>InfoSecScorecardDB.Designer.cs</LastGenOutput>
+      <LastGenOutput>InfoSecSurvey.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="InfoSecScorecardDB.edmx.diagram">
-      <DependentUpon>InfoSecScorecardDB.edmx</DependentUpon>
+    <None Include="InfoSecSurvey.edmx.diagram">
+      <DependentUpon>InfoSecSurvey.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="InfoSecScorecardDB.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>InfoSecScorecardDB.edmx</DependentUpon>
-      <LastGenOutput>InfoSecScorecardDB.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="InfoSecScorecardDB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>InfoSecScorecardDB.edmx</DependentUpon>
-      <LastGenOutput>InfoSecScorecardDB.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="InfoSecSurvey.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>InfoSecSurvey.edmx</DependentUpon>
+      <LastGenOutput>InfoSecSurvey.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="InfoSecSurvey.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>InfoSecSurvey.edmx</DependentUpon>
+      <LastGenOutput>InfoSecSurvey.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InformationSecurityScorecar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InformationSecurityScorecard.Implementations", "InformationSecurityScorecard.Implementations\InformationSecurityScorecard.Implementations.csproj", "{9E7BB6BE-7237-4E28-986A-5E14B5791CF2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InformationSecurityScorecard.AdminUtility", "InformationSecurityScorecard.AdminUtility\InformationSecurityScorecard.AdminUtility.csproj", "{B3BDBC9E-6C1F-41CA-9E34-7EA42064B532}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InformationSecurityScorecard.DocumentGeneration", "InformationSecurityScorecard.DocumentGeneration\InformationSecurityScorecard.DocumentGeneration.csproj", "{9F23AF9E-54FA-495A-9510-DA5EB3646428}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +57,14 @@ Global
 		{9E7BB6BE-7237-4E28-986A-5E14B5791CF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E7BB6BE-7237-4E28-986A-5E14B5791CF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E7BB6BE-7237-4E28-986A-5E14B5791CF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3BDBC9E-6C1F-41CA-9E34-7EA42064B532}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3BDBC9E-6C1F-41CA-9E34-7EA42064B532}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3BDBC9E-6C1F-41CA-9E34-7EA42064B532}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3BDBC9E-6C1F-41CA-9E34-7EA42064B532}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F23AF9E-54FA-495A-9510-DA5EB3646428}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F23AF9E-54FA-495A-9510-DA5EB3646428}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F23AF9E-54FA-495A-9510-DA5EB3646428}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F23AF9E-54FA-495A-9510-DA5EB3646428}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

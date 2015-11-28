@@ -4,12 +4,12 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="InfoSecScorecardModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="InfoSecSurveyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AnswerInstance">
           <Key>
             <PropertyRef Name="Answer_InstanceId" />
           </Key>
-          <Property Name="Answer_InstanceId" Type="int" Nullable="false" />
+          <Property Name="Answer_InstanceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Questionnaire_InstanceId" Type="int" Nullable="false" />
           <Property Name="AnswerId" Type="int" Nullable="false" />
         </EntityType>
@@ -17,14 +17,14 @@
           <Key>
             <PropertyRef Name="AnswerId" />
           </Key>
-          <Property Name="AnswerId" Type="int" Nullable="false" />
+          <Property Name="AnswerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Answer_Description" Type="varchar" MaxLength="35" Nullable="false" />
         </EntityType>
         <EntityType Name="Attachments">
           <Key>
             <PropertyRef Name="AttachmentId" />
           </Key>
-          <Property Name="AttachmentId" Type="int" Nullable="false" />
+          <Property Name="AttachmentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="LogId" Type="int" Nullable="false" />
           <Property Name="FileName" Type="varchar" MaxLength="20" Nullable="false" />
         </EntityType>
@@ -32,7 +32,7 @@
           <Key>
             <PropertyRef Name="CommentId" />
           </Key>
-          <Property Name="CommentId" Type="int" Nullable="false" />
+          <Property Name="CommentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Comments" Type="varchar" MaxLength="500" />
           <Property Name="Answer_InstanceId" Type="int" Nullable="false" />
         </EntityType>
@@ -40,7 +40,7 @@
           <Key>
             <PropertyRef Name="LogId" />
           </Key>
-          <Property Name="LogId" Type="int" Nullable="false" />
+          <Property Name="LogId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MailSubject" Type="varchar" MaxLength="50" />
           <Property Name="Date_Log" Type="date" />
           <Property Name="Communication_TypeId" Type="int" Nullable="false" />
@@ -51,14 +51,14 @@
           <Key>
             <PropertyRef Name="Communication_TypeId" />
           </Key>
-          <Property Name="Communication_TypeId" Type="int" Nullable="false" />
+          <Property Name="Communication_TypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Decsription" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Organization">
           <Key>
             <PropertyRef Name="OrganizationId" />
           </Key>
-          <Property Name="OrganizationId" Type="int" Nullable="false" />
+          <Property Name="OrganizationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Organization_Name" Type="varchar" MaxLength="35" Nullable="false" />
           <Property Name="City" Type="varchar" MaxLength="30" />
           <Property Name="State" Type="varchar" MaxLength="30" />
@@ -73,7 +73,7 @@
           <Key>
             <PropertyRef Name="QuestionId" />
           </Key>
-          <Property Name="QuestionId" Type="int" Nullable="false" />
+          <Property Name="QuestionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Description" Type="varchar" MaxLength="2000" />
           <Property Name="Date_Modified" Type="date" />
           <Property Name="Date_Modified_By" Type="varchar" MaxLength="30" />
@@ -85,7 +85,7 @@
           <Key>
             <PropertyRef Name="Questionnaire_InstanceId" />
           </Key>
-          <Property Name="Questionnaire_InstanceId" Type="int" Nullable="false" />
+          <Property Name="Questionnaire_InstanceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="QuestionId" Type="int" Nullable="false" />
           <Property Name="SurveyId" Type="int" Nullable="false" />
         </EntityType>
@@ -93,7 +93,7 @@
           <Key>
             <PropertyRef Name="SectionId" />
           </Key>
-          <Property Name="SectionId" Type="int" Nullable="false" />
+          <Property Name="SectionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Section_Description" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Date_Modified" Type="date" />
           <Property Name="Date_Modified_By" Type="varchar" MaxLength="30" />
@@ -104,7 +104,7 @@
           <Key>
             <PropertyRef Name="SurveyId" />
           </Key>
-          <Property Name="SurveyId" Type="int" Nullable="false" />
+          <Property Name="SurveyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Survey_StartDate" Type="date" />
           <Property Name="Survey_EndDate" Type="date" />
           <Property Name="Date_Modified" Type="date" />
@@ -117,14 +117,14 @@
           <Key>
             <PropertyRef Name="RoleID" />
           </Key>
-          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Role_Description" Type="varchar" MaxLength="35" Nullable="false" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
             <PropertyRef Name="UserId" />
           </Key>
-          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserName" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="User_EmailId" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="Date_Modified" Type="date" />
@@ -266,8 +266,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="ListAllOrganizations" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <EntityContainer Name="InfoSecScorecardModelStoreContainer">
+        <EntityContainer Name="InfoSecSurveyModelStoreContainer">
           <EntitySet Name="AnswerInstance" EntityType="Self.AnswerInstance" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Answers" EntityType="Self.Answers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Attachments" EntityType="Self.Attachments" Schema="dbo" store:Type="Tables" />
@@ -326,15 +325,16 @@
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="InfoSecScorecardModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="InfoSecSurveyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="AnswerInstance">
           <Key>
             <PropertyRef Name="Answer_InstanceId" />
           </Key>
-          <Property Name="Answer_InstanceId" Type="Int32" Nullable="false" />
+          <Property Name="Answer_InstanceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Questionnaire_InstanceId" Type="Int32" Nullable="false" />
           <Property Name="AnswerId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Questionnaire_Instance" Relationship="Self.AnswerIns_FK1" FromRole="AnswerInstance" ToRole="Questionnaire_Instance" />
@@ -345,7 +345,7 @@
           <Key>
             <PropertyRef Name="AnswerId" />
           </Key>
-          <Property Name="AnswerId" Type="Int32" Nullable="false" />
+          <Property Name="AnswerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Answer_Description" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="AnswerInstances" Relationship="Self.AnswerIns_FK2" FromRole="Answers" ToRole="AnswerInstance" />
         </EntityType>
@@ -353,7 +353,7 @@
           <Key>
             <PropertyRef Name="AttachmentId" />
           </Key>
-          <Property Name="AttachmentId" Type="Int32" Nullable="false" />
+          <Property Name="AttachmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="LogId" Type="Int32" Nullable="false" />
           <Property Name="FileName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Communication_Log" Relationship="Self.Attach_FK" FromRole="Attachments" ToRole="Communication_Log" />
@@ -362,7 +362,7 @@
           <Key>
             <PropertyRef Name="CommentId" />
           </Key>
-          <Property Name="CommentId" Type="Int32" Nullable="false" />
+          <Property Name="CommentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Comments" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="Answer_InstanceId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="AnswerInstance" Relationship="Self.Comments_FK" FromRole="Comments" ToRole="AnswerInstance" />
@@ -371,7 +371,7 @@
           <Key>
             <PropertyRef Name="LogId" />
           </Key>
-          <Property Name="LogId" Type="Int32" Nullable="false" />
+          <Property Name="LogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MailSubject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Date_Log" Type="DateTime" Precision="0" />
           <Property Name="Communication_TypeId" Type="Int32" Nullable="false" />
@@ -383,14 +383,14 @@
           <Key>
             <PropertyRef Name="Communication_TypeId" />
           </Key>
-          <Property Name="Communication_TypeId" Type="Int32" Nullable="false" />
+          <Property Name="Communication_TypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Decsription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Organization">
           <Key>
             <PropertyRef Name="OrganizationId" />
           </Key>
-          <Property Name="OrganizationId" Type="Int32" Nullable="false" />
+          <Property Name="OrganizationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Organization_Name" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="City" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="State" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
@@ -408,7 +408,7 @@
           <Key>
             <PropertyRef Name="QuestionId" />
           </Key>
-          <Property Name="QuestionId" Type="Int32" Nullable="false" />
+          <Property Name="QuestionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Description" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
           <Property Name="Date_Modified" Type="DateTime" Precision="0" />
           <Property Name="Date_Modified_By" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
@@ -422,7 +422,7 @@
           <Key>
             <PropertyRef Name="Questionnaire_InstanceId" />
           </Key>
-          <Property Name="Questionnaire_InstanceId" Type="Int32" Nullable="false" />
+          <Property Name="Questionnaire_InstanceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="QuestionId" Type="Int32" Nullable="false" />
           <Property Name="SurveyId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="AnswerInstances" Relationship="Self.AnswerIns_FK1" FromRole="Questionnaire_Instance" ToRole="AnswerInstance" />
@@ -433,7 +433,7 @@
           <Key>
             <PropertyRef Name="SectionId" />
           </Key>
-          <Property Name="SectionId" Type="Int32" Nullable="false" />
+          <Property Name="SectionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Section_Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Date_Modified" Type="DateTime" Precision="0" />
           <Property Name="Date_Modified_By" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
@@ -445,7 +445,7 @@
           <Key>
             <PropertyRef Name="SurveyId" />
           </Key>
-          <Property Name="SurveyId" Type="Int32" Nullable="false" />
+          <Property Name="SurveyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Survey_StartDate" Type="DateTime" Precision="0" />
           <Property Name="Survey_EndDate" Type="DateTime" Precision="0" />
           <Property Name="Date_Modified" Type="DateTime" Precision="0" />
@@ -460,7 +460,7 @@
           <Key>
             <PropertyRef Name="RoleID" />
           </Key>
-          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Role_Description" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Users" Relationship="Self.User_PK1" FromRole="UserRole" ToRole="Users" />
         </EntityType>
@@ -468,7 +468,7 @@
           <Key>
             <PropertyRef Name="UserId" />
           </Key>
-          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="User_EmailId" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Date_Modified" Type="DateTime" Precision="0" />
@@ -613,7 +613,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="InfoSecScorecardEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="InfoSecSurveyEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AnswerInstances" EntityType="Self.AnswerInstance" />
           <EntitySet Name="Answers" EntityType="Self.Answer" />
           <EntitySet Name="Attachments" EntityType="Self.Attachment" />
@@ -671,28 +671,15 @@
             <End Role="UserRole" EntitySet="UserRoles" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
-          <FunctionImport Name="ListAllOrganizations" ReturnType="Collection(InfoSecScorecardModel.ListAllOrganizations_Result)" />
         </EntityContainer>
-        <ComplexType Name="ListAllOrganizations_Result">
-          <Property Type="Int32" Name="OrganizationId" Nullable="false" />
-          <Property Type="String" Name="Organization_Name" Nullable="false" MaxLength="35" />
-          <Property Type="String" Name="City" Nullable="true" MaxLength="30" />
-          <Property Type="String" Name="State" Nullable="true" MaxLength="30" />
-          <Property Type="String" Name="Country" Nullable="true" MaxLength="30" />
-          <Property Type="DateTime" Name="Date_Modified" Nullable="true" />
-          <Property Type="String" Name="Date_Modified_By" Nullable="true" MaxLength="30" />
-          <Property Type="DateTime" Name="Date_Created" Nullable="true" />
-          <Property Type="String" Name="Date_Created_By" Nullable="true" MaxLength="30" />
-          <Property Type="Int32" Name="Survey_OrganizationId" Nullable="false" />
-        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="InfoSecScorecardModelStoreContainer" CdmEntityContainer="InfoSecScorecardEntities">
+        <EntityContainerMapping StorageEntityContainer="InfoSecSurveyModelStoreContainer" CdmEntityContainer="InfoSecSurveyEntities">
           <EntitySetMapping Name="AnswerInstances">
-            <EntityTypeMapping TypeName="InfoSecScorecardModel.AnswerInstance">
+            <EntityTypeMapping TypeName="InfoSecSurveyModel.AnswerInstance">
               <MappingFragment StoreEntitySet="AnswerInstance">
                 <ScalarProperty Name="Answer_InstanceId" ColumnName="Answer_InstanceId" />
                 <ScalarProperty Name="Questionnaire_InstanceId" ColumnName="Questionnaire_InstanceId" />
@@ -701,7 +688,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Answers">
-            <EntityTypeMapping TypeName="InfoSecScorecardModel.Answer">
+            <EntityTypeMapping TypeName="InfoSecSurveyModel.Answer">
               <MappingFragment StoreEntitySet="Answers">
                 <ScalarProperty Name="AnswerId" ColumnName="AnswerId" />
                 <ScalarProperty Name="Answer_Description" ColumnName="Answer_Description" />
@@ -709,7 +696,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Attachments">
-            <EntityTypeMapping TypeName="InfoSecScorecardModel.Attachment">
+            <EntityTypeMapping TypeName="InfoSecSurveyModel.Attachment">
               <MappingFragment StoreEntitySet="Attachments">
                 <ScalarProperty Name="AttachmentId" ColumnName="AttachmentId" />
                 <ScalarProperty Name="LogId" ColumnName="LogId" />
@@ -718,7 +705,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Comments">
-            <EntityTypeMapping TypeName="InfoSecScorecardModel.Comment">
+            <EntityTypeMapping TypeName="InfoSecSurveyModel.Comment">
               <MappingFragment StoreEntitySet="Comments">
                 <ScalarProperty Name="CommentId" ColumnName="CommentId" />
                 <ScalarProperty Name="Comments" ColumnName="Comments" />
@@ -727,7 +714,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Communication_Log">
-            <EntityTypeMapping TypeName="InfoSecScorecardModel.Communication_Log">
+            <EntityTypeMapping TypeName="InfoSecSurveyModel.Communication_Log">
               <MappingFragment StoreEntitySet="Communication_Log">
                 <ScalarProperty Name="LogId" ColumnName="LogId" />
                 <ScalarProperty Name="MailSubject" ColumnName="MailSubject" />
@@ -739,7 +726,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Communication_Type">
-            <EntityTypeMapping TypeName="InfoSecScorecardModel.Communication_Type">
+            <EntityTypeMapping TypeName="InfoSecSurveyModel.Communication_Type">
               <MappingFragment StoreEntitySet="Communication_Type">
                 <ScalarProperty Name="Communication_TypeId" ColumnName="Communication_TypeId" />
                 <ScalarProperty Name="Decsription" ColumnName="Decsription" />
@@ -747,7 +734,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Organizations">
-            <EntityTypeMapping TypeName="InfoSecScorecardModel.Organization">
+            <EntityTypeMapping TypeName="InfoSecSurveyModel.Organization">
               <MappingFragment StoreEntitySet="Organization">
                 <ScalarProperty Name="OrganizationId" ColumnName="OrganizationId" />
                 <ScalarProperty Name="Organization_Name" ColumnName="Organization_Name" />
@@ -763,7 +750,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Questionnaires">
-            <EntityTypeMapping TypeName="InfoSecScorecardModel.Questionnaire">
+            <EntityTypeMapping TypeName="InfoSecSurveyModel.Questionnaire">
               <MappingFragment StoreEntitySet="Questionnaire">
                 <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
@@ -776,7 +763,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Questionnaire_Instance">
-            <EntityTypeMapping TypeName="InfoSecScorecardModel.Questionnaire_Instance">
+            <EntityTypeMapping TypeName="InfoSecSurveyModel.Questionnaire_Instance">
               <MappingFragment StoreEntitySet="Questionnaire_Instance">
                 <ScalarProperty Name="Questionnaire_InstanceId" ColumnName="Questionnaire_InstanceId" />
                 <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
@@ -785,7 +772,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Questionnaire_Section">
-            <EntityTypeMapping TypeName="InfoSecScorecardModel.Questionnaire_Section">
+            <EntityTypeMapping TypeName="InfoSecSurveyModel.Questionnaire_Section">
               <MappingFragment StoreEntitySet="Questionnaire_Section">
                 <ScalarProperty Name="SectionId" ColumnName="SectionId" />
                 <ScalarProperty Name="Section_Description" ColumnName="Section_Description" />
@@ -797,7 +784,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Surveys">
-            <EntityTypeMapping TypeName="InfoSecScorecardModel.Survey">
+            <EntityTypeMapping TypeName="InfoSecSurveyModel.Survey">
               <MappingFragment StoreEntitySet="Survey">
                 <ScalarProperty Name="SurveyId" ColumnName="SurveyId" />
                 <ScalarProperty Name="Survey_StartDate" ColumnName="Survey_StartDate" />
@@ -811,7 +798,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="UserRoles">
-            <EntityTypeMapping TypeName="InfoSecScorecardModel.UserRole">
+            <EntityTypeMapping TypeName="InfoSecSurveyModel.UserRole">
               <MappingFragment StoreEntitySet="UserRole">
                 <ScalarProperty Name="RoleID" ColumnName="RoleID" />
                 <ScalarProperty Name="Role_Description" ColumnName="Role_Description" />
@@ -819,7 +806,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="InfoSecScorecardModel.User">
+            <EntityTypeMapping TypeName="InfoSecSurveyModel.User">
               <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
@@ -833,22 +820,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="ListAllOrganizations" FunctionName="InfoSecScorecardModel.Store.ListAllOrganizations">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="InfoSecScorecardModel.ListAllOrganizations_Result">
-                <ScalarProperty Name="OrganizationId" ColumnName="OrganizationId" />
-                <ScalarProperty Name="Organization_Name" ColumnName="Organization_Name" />
-                <ScalarProperty Name="City" ColumnName="City" />
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Country" ColumnName="Country" />
-                <ScalarProperty Name="Date_Modified" ColumnName="Date_Modified" />
-                <ScalarProperty Name="Date_Modified_By" ColumnName="Date_Modified_By" />
-                <ScalarProperty Name="Date_Created" ColumnName="Date_Created" />
-                <ScalarProperty Name="Date_Created_By" ColumnName="Date_Created_By" />
-                <ScalarProperty Name="Survey_OrganizationId" ColumnName="Survey_OrganizationId" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
