@@ -13,6 +13,71 @@ namespace InformationSecurityScorecard.Implementations
 {
     public class Implementations
     {
+
+        public OrgEnt GetDetails()
+        {
+            OrgEnt org = new OrgEnt();
+            using (var db = new InfoSecSurveyEntities())
+            {
+                var orgDetails = db.Organizations.Where(x => x.OrganizationId == 3).FirstOrDefault();
+                org.OrganizationID = orgDetails.OrganizationId;
+                org.City = orgDetails.City;
+                org.Country = orgDetails.Country;
+                org.State = orgDetails.State;
+                org.OrganizationName = orgDetails.Organization_Name;
+                org.AuditingOrg = db.Organizations.Where(x => x.Survey_OrganizationId == orgDetails.Survey_OrganizationId).FirstOrDefault().Organization_Name;
+                List<Question> qsL = new List<Question>();
+                Question q;
+                
+                foreach (var qsn in db.Questionnaires.ToList())
+                {
+                    q = new Question();
+                    q.qs = new QuestionSection();
+                    var qsnSec = db.Questionnaire_Section.Where(x => x.SectionId == qsn.SectionId).First();
+                    q.qs.QuestionSectionID = qsnSec.SectionId;
+                    q.qs.QuestionSecDescription = qsnSec.Section_Description;
+                    int yesCount = 0;
+                    int noCount = 0;
+                    var qsnInstList = db.Questionnaire_Instance.Where(x => x.QuestionId == qsn.QuestionId).Select(x => x.Questionnaire_InstanceId);
+                    foreach(var qsnInst in qsnInstList)
+                    {
+                        var ans = db.AnswerInstances.First(x => x.Questionnaire_InstanceId == qsnInst).AnswerId;
+                        if(ans.Equals(1))
+                        {
+                            yesCount++;
+                        }
+                        else
+                        {
+                            noCount++;
+                        }
+                    }
+                    q.YesCount = yesCount;
+                    q.NoCount = noCount;
+                    q.TotalResponses = yesCount + noCount;
+                    q.QuestionID = qsn.QuestionId;
+                    q.QuestionDescription = qsn.Description;
+                    qsL.Add(q);
+                }
+                org.QsnList = qsL;
+            }
+            
+            return org;
+        }
+
+
+        public List<OrgEnt> GetParticipatingOrganizations()
+        {
+            using (var db = new InfoSecSurveyEntities())
+            {
+                var orgs = db.Organizations.Where(x => x.OrganizationId != -1).ToList();
+                List<OrgEnt> lstOrgEnt = new List<OrgEnt>();
+                foreach(var i in orgs)
+                {
+                    lstOrgEnt.Add(new OrgEnt() { OrganizationID = i.OrganizationId, OrganizationName = i.Organization_Name, City = i.City, State = i.State, Country = i.Country });
+                }
+                return lstOrgEnt;
+            }
+        }
         public int CreateOrganization(DataAccess.Organization org)
         {
             using (var db = new InfoSecSurveyEntities())

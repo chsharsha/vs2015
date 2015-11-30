@@ -8,7 +8,7 @@ namespace InformationSecurityScorecard.Entities
 {
     public class Organization
     {
-        public string OrganizationID { get; set; }
+        public int OrganizationID { get; set; }
         public string OrganizationName { get; set; }
         public string City { get; set; }
 
@@ -18,5 +18,35 @@ namespace InformationSecurityScorecard.Entities
 
         public string AuditingOrg { get; set; }
 
+        public List<Question> QsnList { get; set; }
+
+    }
+
+
+    public class Question
+    {
+        public int QuestionID { get; set; }
+
+        public string QuestionDescription { get; set; }
+
+        public QuestionSection qs { get; set; }
+
+        public int TotalResponses { get; set; }
+
+        public int YesCount { get; set; }
+
+        public int NoCount { get; set; }
+
+
+    }
+
+
+
+
+    public class QuestionSection
+    {
+        public int QuestionSectionID { get; set; }
+
+        public string QuestionSecDescription { get; set; }
     }
 }

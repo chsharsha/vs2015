@@ -83,6 +83,22 @@ namespace InformationSecurityScorecard.UnitTests
             d.CreateTable();
         }
 
+
+        [TestMethod]
+        public void TestPullDetails()
+        {
+            Implementations.Implementations imp = new Implementations.Implementations();
+            imp.GetDetails();
+        }
+
+
+        [TestMethod]
+        public void TestPullParticipatingOrgs()
+        {
+            Implementations.Implementations imp = new Implementations.Implementations();
+            var m=imp.GetParticipatingOrganizations();
+        }
+
         [TestMethod]
         public void TestInsertUser()
         {
