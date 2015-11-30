@@ -12,6 +12,7 @@ namespace InformationSecurityScorecard.DocumentGeneration
     {
         public void GenerateDocument()
         {
+            
             // Create a new PDF document
             PdfDocument document = new PdfDocument();
             document.Info.Title = "Created with PDFsharp";
@@ -29,7 +30,8 @@ namespace InformationSecurityScorecard.DocumentGeneration
             gfx.DrawString("Hello, World!", font, XBrushes.Black,
               new XRect(0, 0, page.Width, page.Height),
               XStringFormats.Center);
-
+            
+            
             // Save the document...
             const string filename = @"E:\Data\HelloWorld.pdf";
             document.Save(filename);

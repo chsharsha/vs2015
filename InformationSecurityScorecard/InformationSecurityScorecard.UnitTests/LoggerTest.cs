@@ -43,8 +43,10 @@ namespace InformationSecurityScorecard.UnitTests
         [TestMethod]
         public void TestDocumentGenerate()
         {
-            DocumentGenerator dg = new DocumentGenerator();
-            dg.GenerateDocument();
+            //DocumentGenerator dg = new DocumentGenerator();
+            //dg.GenerateDocument();
+            ITextSharpDocGenerator d = new ITextSharpDocGenerator();
+            d.CreateTable();
         }
 
         [TestMethod]
