@@ -12,5 +12,4 @@ select * from Questionnaire
 select * from Questionnaire_Instance
 select * from AnswerInstance
 
-delete from Questionnaire_Instance
 

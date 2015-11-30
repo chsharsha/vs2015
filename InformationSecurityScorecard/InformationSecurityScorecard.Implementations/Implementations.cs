@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using InformationSecurityScorecard.DataAccess;
 using OrgEnt = InformationSecurityScorecard.Entities.Organization;
 using System.Reflection;
+using InformationSecurityScorecard.Logging;
 
 namespace InformationSecurityScorecard.Implementations
 {
@@ -28,29 +29,45 @@ namespace InformationSecurityScorecard.Implementations
         {
 
             var userEmail = allResponses[1];
-            var firstName = allResponses[53];
-            var lastName = allResponses[54];
-            User u = new User();
-            u.UserName = firstName + " " + lastName;
-            u.User_EmailId = userEmail;
-            var userId=CreateUser(u);
-            Survey s = new Survey();
-            s.UserId = userId;
-            var surveyId = CreateSurvey(s);
-            Questionnaire_Instance qi;
-            AnswerInstance ai;
-            for (int i = 2; i <= 52; i++)
+            if (!IsEmailExisting(userEmail))
             {
-                qi = new Questionnaire_Instance();
-                qi.SurveyId = surveyId;
-                qi.QuestionId = i-1;
-                var questInstanceId = CreateQuestionnairInstance(qi);
-                ai = new AnswerInstance();
-                ai.Questionnaire_InstanceId = questInstanceId;
-                ai.AnswerId = allResponses[i].Equals("Yes") ? (int)AnswerOptions.Yes : (int)AnswerOptions.No;
-                var answerInstanceId = CreateAnswerInstance(ai);
+                Logger.InfoFormat("Importing data of the id {0} ...", userEmail);
+                var firstName = allResponses[53];
+                var lastName = allResponses[54];
+                User u = new User();
+                u.UserName = firstName + " " + lastName;
+                u.User_EmailId = userEmail;
+                var userId = CreateUser(u);
+                Survey s = new Survey();
+                s.UserId = userId;
+                var surveyId = CreateSurvey(s);
+                Questionnaire_Instance qi;
+                AnswerInstance ai;
+                for (int i = 2; i <= 52; i++)
+                {
+                    qi = new Questionnaire_Instance();
+                    qi.SurveyId = surveyId;
+                    qi.QuestionId = i - 1;
+                    var questInstanceId = CreateQuestionnairInstance(qi);
+                    ai = new AnswerInstance();
+                    ai.Questionnaire_InstanceId = questInstanceId;
+                    ai.AnswerId = allResponses[i].Equals("Yes") ? (int)AnswerOptions.Yes : (int)AnswerOptions.No;
+                    var answerInstanceId = CreateAnswerInstance(ai);
+                }
+            }
+            else
+            {
+                Logger.InfoFormat("{0} email id already found in the system. Skipping..", userEmail);
             }
 
+        }
+
+        public bool IsEmailExisting(string emailId)
+        {
+            using (var db = new InfoSecSurveyEntities())
+            {
+                return db.Users.Any(x => x.User_EmailId.Equals(emailId));
+            }
         }
 
         public int CreateQuestionnairInstance(Questionnaire_Instance qi)

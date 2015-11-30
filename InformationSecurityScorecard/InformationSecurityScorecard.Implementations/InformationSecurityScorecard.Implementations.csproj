@@ -61,6 +61,10 @@
       <Project>{b4b8681a-4702-41b6-8651-835d908cbfb1}</Project>
       <Name>InformationSecurityScorecard.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\InformationSecurityScorecard.Logging\InformationSecurityScorecard.Logging.csproj">
+      <Project>{49b11c9f-d99c-40ba-93bd-430f108e8151}</Project>
+      <Name>InformationSecurityScorecard.Logging</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
