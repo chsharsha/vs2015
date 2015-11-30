@@ -11,6 +11,7 @@ namespace InformationSecurityScorecard.AdminUtility
     {
         static void Main(string[] args)
         {
+            
             using (TextFieldParser parser = new TextFieldParser(@"E:\Data\responses.csv"))
             {
                 parser.CommentTokens = new string[] { "#" };
@@ -26,19 +27,19 @@ namespace InformationSecurityScorecard.AdminUtility
                     var m = fields.ToList().Where(x => !String.IsNullOrEmpty(x)).ToList();
                     if(m.Count!=55)
                     {
+                        
+                        
                         continue;
                     }
-                    Console.WriteLine(fields[53]);
-                    //yield return new Brand()
-                    //{
-                    //    Name = fields[0],
-                    //    FactoryLocation = fields[1],
-                    //    EstablishedYear = int.Parse(fields[2]),
-                    //    Profit = double.Parse(fields[3], swedishCulture)
-                    //};
+                    Implementations.Implementations imp = new Implementations.Implementations();
+                    imp.GetNewImports(fields);
+
+
                 }
             }
-            Console.Read();
+            
+
+            
         }
     }
 }

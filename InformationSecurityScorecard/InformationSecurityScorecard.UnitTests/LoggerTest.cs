@@ -37,7 +37,7 @@ namespace InformationSecurityScorecard.UnitTests
             org.Survey_OrganizationId = -1;
            
             Implementations.Implementations imp = new Implementations.Implementations();
-            //var i=imp.CreateOrganization(org);
+            var i = imp.CreateOrganization(org);
         }
 
         [TestMethod]
@@ -58,6 +58,20 @@ namespace InformationSecurityScorecard.UnitTests
             var i = imp.CreateUser(usr);
         }
 
+        [TestMethod]
+        public void TestSurveyInsert()
+        {
+            DataAccess.User usr = new User();
+            usr.UserName = "FName" + " " + "LNAME";
+            usr.User_EmailId = "abcd" + new Random().Next().ToString() + "@msn.com";
+
+            Implementations.Implementations imp = new Implementations.Implementations();
+            var i = imp.CreateUser(usr);
+
+            Survey s = new Survey();
+            s.UserId = i;
+            var sID = imp.CreateSurvey(s);
+        }
 
         [TestMethod]
         public void FindOneOrganizationsByEntity()
