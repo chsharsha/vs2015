@@ -6,11 +6,45 @@ using System.Data.SqlClient;
 using System.Linq;
 using InformationSecurityScorecard.Implementations;
 using InformationSecurityScorecard.DocumentGeneration;
+using Microsoft.VisualBasic.FileIO;
+
 namespace InformationSecurityScorecard.UnitTests
 {
     [TestClass]
     public class LoggerTest
     {
+
+
+        [TestMethod]
+        public void ImportNewResults()
+        {
+            using (TextFieldParser parser = new TextFieldParser(@"E:\Data\responses.csv"))
+            {
+                parser.CommentTokens = new string[] { "#" };
+                parser.SetDelimiters(new string[] { "," });
+                parser.HasFieldsEnclosedInQuotes = true;
+
+                // Skip over header line.
+                parser.ReadLine();
+
+                while (!parser.EndOfData)
+                {
+                    string[] fields = parser.ReadFields();
+                    var m = fields.ToList().Where(x => !String.IsNullOrEmpty(x)).ToList();
+                    if (m.Count != 55)
+                    {
+
+
+                        continue;
+                    }
+
+                    Implementations.Implementations imp = new Implementations.Implementations();
+                    imp.GetNewImports(fields);
+
+
+                }
+            }
+        }
         [TestMethod]
         public void TestInfoLogging()
         {
