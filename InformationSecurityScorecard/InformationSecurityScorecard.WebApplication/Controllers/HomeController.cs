@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using InformationSecurityScorecard.WebApplication.Models;
+using InformationSecurityScorecard.Implementations;
 namespace InformationSecurityScorecard.WebApplication.Controllers
 {
 
@@ -29,18 +30,32 @@ namespace InformationSecurityScorecard.WebApplication.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            PreRequestCheckList.AuthenticateRequest(Request);
+            Implementations.Implementations imp = new Implementations.Implementations();
 
-            if (Session["LoggedinUser"] != null)
-            {
-                var a = Session["LoggedinUser"].ToString();
-                return View();
-            }
+            ViewBag.AllDetails = imp.GetParticipatingOrganizations();
+            return View();
+            //PreRequestCheckList.AuthenticateRequest(Request);
 
-            else
-            {
-                return View("Error");
-            }
+            //if (Session["LoggedinUser"] != null)
+            //{
+            //    var a = Session["LoggedinUser"].ToString();
+            //    return View();
+            //}
+
+            //else
+            //{
+            //    return View("Error");
+            //}
+        }
+
+
+        public ActionResult ShowStatistics()
+        {
+            Implementations.Implementations imp = new Implementations.Implementations();
+
+            ViewBag.AllDetails = imp.GetDetails();
+            return View();
+            
         }
 
         public ActionResult Error()

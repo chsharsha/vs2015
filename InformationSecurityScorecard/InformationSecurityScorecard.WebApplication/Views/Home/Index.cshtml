@@ -2,6 +2,43 @@
 @{
     ViewBag.Title = "Index";
 }
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#btnSpanStatsModule').click(function () {
+            var url = '@Url.Action("ShowStatistics", "Home")';
+            window.location.href = url;
+            
+        })
+    });
+</script>
 
 <h2>Index</h2>
-
+<div class="container">
+    <table class="table-bordered" style="width:100%">
+        <thead style="background-color:#33cc33;color:#000000">
+            <tr>
+                <th>Organization Name</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Country</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                var lstCompanyDetails = (List<InformationSecurityScorecard.Entities.Organization>)ViewBag.AllDetails;
+                foreach (var m in lstCompanyDetails)
+                {
+                    <tr>
+                        <td>@m.OrganizationName</td>
+                        <td>@m.City</td>
+                        <td>@m.State</td>
+                        <td>@m.Country</td>
+                        <td><button class="btn-danger" id="btnSpanStatsModule">Yess</button></td>
+                    </tr>
+                }
+               
+            }
+        </tbody>
+    </table>
+</div>
