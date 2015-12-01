@@ -88,7 +88,8 @@ namespace InformationSecurityScorecard.UnitTests
         public void TestPullDetails()
         {
             Implementations.Implementations imp = new Implementations.Implementations();
-            imp.GetDetails();
+            var m=imp.GetDetails();
+            int a=1;
         }
 
 

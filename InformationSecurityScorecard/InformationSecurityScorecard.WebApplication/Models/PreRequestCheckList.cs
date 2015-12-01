@@ -6,6 +6,8 @@ using System.Web;
 
 namespace InformationSecurityScorecard.WebApplication.Models
 {
+
+
     public static class PreRequestCheckList
     {
         private static List<string> SQLKeywords = new string[]

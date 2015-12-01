@@ -18,7 +18,8 @@ namespace InformationSecurityScorecard.Entities
 
         public string AuditingOrg { get; set; }
 
-        public List<Question> QsnList { get; set; }
+        public List<QuestionSection> qs { get; set; }
+        
 
     }
 
@@ -29,8 +30,7 @@ namespace InformationSecurityScorecard.Entities
 
         public string QuestionDescription { get; set; }
 
-        public QuestionSection qs { get; set; }
-
+        
         public int TotalResponses { get; set; }
 
         public int YesCount { get; set; }
@@ -48,5 +48,7 @@ namespace InformationSecurityScorecard.Entities
         public int QuestionSectionID { get; set; }
 
         public string QuestionSecDescription { get; set; }
+
+        public List<Question> QsnList { get; set; }
     }
 }

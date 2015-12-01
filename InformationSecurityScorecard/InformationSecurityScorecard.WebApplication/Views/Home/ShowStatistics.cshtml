@@ -3,5 +3,32 @@
     ViewBag.Title = "ShowStatistics";
 }
 
-<h2>ShowStatistics</h2>
 
+
+<div class="container">
+    @{
+        var org = (InformationSecurityScorecard.Entities.Organization)ViewBag.AllDetails;
+        <div class="row" style="text-align:center">
+            <h2>Showing Statistics for @org.OrganizationName </h2>
+
+        </div>
+        int totalCount = 0, yescount = 0, nocount = 0;
+        foreach (var i in org.qs)
+        {
+
+            foreach(var q in i.QsnList)
+            {
+                totalCount += q.TotalResponses;
+                yescount += q.YesCount;
+                nocount += q.NoCount;
+            }
+            decimal complPer = 1 / 2;
+            <p>@i.QuestionSecDescription---- Total Compliance = @totalCount %</p> 
+            
+            
+        }
+
+
+    }
+
+</div>

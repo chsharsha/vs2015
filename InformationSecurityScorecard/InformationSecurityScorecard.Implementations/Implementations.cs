@@ -17,6 +17,8 @@ namespace InformationSecurityScorecard.Implementations
         public OrgEnt GetDetails()
         {
             OrgEnt org = new OrgEnt();
+            org.qs = new List<QuestionSection>();
+
             using (var db = new InfoSecSurveyEntities())
             {
                 var orgDetails = db.Organizations.Where(x => x.OrganizationId == 3).FirstOrDefault();
@@ -26,39 +28,45 @@ namespace InformationSecurityScorecard.Implementations
                 org.State = orgDetails.State;
                 org.OrganizationName = orgDetails.Organization_Name;
                 org.AuditingOrg = db.Organizations.Where(x => x.Survey_OrganizationId == orgDetails.Survey_OrganizationId).FirstOrDefault().Organization_Name;
-                List<Question> qsL = new List<Question>();
+                QuestionSection qs;
                 Question q;
-                
-                foreach (var qsn in db.Questionnaires.ToList())
+                var dbQsnSecList = db.Questionnaire_Section.ToList();
+
+                foreach (var i in dbQsnSecList)
                 {
-                    q = new Question();
-                    q.qs = new QuestionSection();
-                    var qsnSec = db.Questionnaire_Section.Where(x => x.SectionId == qsn.SectionId).First();
-                    q.qs.QuestionSectionID = qsnSec.SectionId;
-                    q.qs.QuestionSecDescription = qsnSec.Section_Description;
-                    int yesCount = 0;
-                    int noCount = 0;
-                    var qsnInstList = db.Questionnaire_Instance.Where(x => x.QuestionId == qsn.QuestionId).Select(x => x.Questionnaire_InstanceId);
-                    foreach(var qsnInst in qsnInstList)
+                    qs = new QuestionSection();
+                    qs.QuestionSectionID = i.SectionId;
+                    qs.QuestionSecDescription = i.Section_Description;
+                    qs.QsnList = new List<Question>();
+                    var associatedQsnrs = db.Questionnaires.Where(x => x.SectionId == i.SectionId).ToList();
+                    foreach (var assocQsnr in associatedQsnrs)
                     {
-                        var ans = db.AnswerInstances.First(x => x.Questionnaire_InstanceId == qsnInst).AnswerId;
-                        if(ans.Equals(1))
+                        int yesCount = 0;
+                        int noCount = 0;
+                        q = new Question();
+                        q.QuestionID = assocQsnr.QuestionId;
+                        q.QuestionDescription = assocQsnr.Description;
+                        var qsnInstns = db.Questionnaire_Instance.Where(x => x.QuestionId == assocQsnr.QuestionId).Select(x => x.Questionnaire_InstanceId);
+                        foreach (var item in qsnInstns)
                         {
-                            yesCount++;
+                            var ans = db.AnswerInstances.First(x => x.Questionnaire_InstanceId == item).AnswerId;
+                            if (ans.Equals(1))
+                            {
+                                yesCount++;
+                            }
+                            else
+                            {
+                                noCount++;
+                            }
                         }
-                        else
-                        {
-                            noCount++;
-                        }
+                        q.YesCount = yesCount;
+                        q.NoCount = noCount;
+                        q.TotalResponses = yesCount + noCount;
+                        qs.QsnList.Add(q);
                     }
-                    q.YesCount = yesCount;
-                    q.NoCount = noCount;
-                    q.TotalResponses = yesCount + noCount;
-                    q.QuestionID = qsn.QuestionId;
-                    q.QuestionDescription = qsn.Description;
-                    qsL.Add(q);
+                    org.qs.Add(qs);
                 }
-                org.QsnList = qsL;
+
             }
             
             return org;
