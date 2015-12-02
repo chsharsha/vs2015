@@ -50,5 +50,9 @@ namespace InformationSecurityScorecard.Entities
         public string QuestionSecDescription { get; set; }
 
         public List<Question> QsnList { get; set; }
+
+        public float sectionLevelYes { get; set; }
+
+        public float sectionLevelNo { get; set; }
     }
 }

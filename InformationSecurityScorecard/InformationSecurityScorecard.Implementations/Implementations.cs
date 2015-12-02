@@ -62,8 +62,10 @@ namespace InformationSecurityScorecard.Implementations
                         q.YesCount = yesCount;
                         q.NoCount = noCount;
                         q.TotalResponses = yesCount + noCount;
+                        
                         qs.QsnList.Add(q);
                     }
+                    FillSectionwisePercentages(qs);
                     org.qs.Add(qs);
                 }
 
@@ -72,6 +74,20 @@ namespace InformationSecurityScorecard.Implementations
             return org;
         }
 
+        internal void FillSectionwisePercentages(QuestionSection lsQ)
+        {
+            var yesCount = lsQ.QsnList.Select(x => x.YesCount).ToArray();
+            var sumYes = yesCount.Sum();
+
+            var noCount= lsQ.QsnList.Select(x => x.NoCount).ToArray();
+            var sumNo = noCount.Sum();
+
+            var totCount = lsQ.QsnList.Select(x => x.TotalResponses).ToArray();
+            var sumTot = totCount.Sum();
+
+            lsQ.sectionLevelYes = (float)sumYes * 100 / (float)sumTot;
+            lsQ.sectionLevelNo = (float)sumNo * 100 / (float)sumTot;
+        }
 
         public List<OrgEnt> GetParticipatingOrganizations()
         {
