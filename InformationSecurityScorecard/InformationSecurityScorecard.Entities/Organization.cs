@@ -37,6 +37,10 @@ namespace InformationSecurityScorecard.Entities
 
         public int NoCount { get; set; }
 
+        public float YesPercentage { get; set; }
+
+        public float NoPercentage { get; set; }
+
 
     }
 

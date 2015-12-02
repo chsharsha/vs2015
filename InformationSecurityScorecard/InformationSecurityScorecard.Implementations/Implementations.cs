@@ -62,7 +62,8 @@ namespace InformationSecurityScorecard.Implementations
                         q.YesCount = yesCount;
                         q.NoCount = noCount;
                         q.TotalResponses = yesCount + noCount;
-                        
+                        q.YesPercentage = (float)q.YesCount*100 / (float)q.TotalResponses;
+                        q.NoPercentage = (float)q.NoCount *100/ (float)q.TotalResponses;
                         qs.QsnList.Add(q);
                     }
                     FillSectionwisePercentages(qs);
