@@ -109,6 +109,14 @@ namespace OLAPDummyDataset
 
                     fs.Write(info, 0, info.Length);
                 }
+
+                var m = new CleanseExistingData().CleanseAndGenerate();
+                foreach(var item in m)
+                {
+                    info = new UTF8Encoding(true).GetBytes(ToolKit.GiveRecord(item));
+
+                    fs.Write(info, 0, info.Length);
+                }
             }
            
         }
