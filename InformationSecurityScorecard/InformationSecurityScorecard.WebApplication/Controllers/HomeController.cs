@@ -58,6 +58,14 @@ namespace InformationSecurityScorecard.WebApplication.Controllers
             
         }
 
+
+        public ActionResult ShowFilterPage()
+        {
+            
+            return View();
+
+        }
+
         public ActionResult Error()
         {
             

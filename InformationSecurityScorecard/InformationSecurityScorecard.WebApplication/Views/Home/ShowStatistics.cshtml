@@ -3,7 +3,14 @@
     ViewBag.Title = "ShowStatistics";
 }
 
-
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#btnShowAnalytics').click(function () {
+            var url = '@Url.Action("ShowStatistics", "Home")';
+            window.location.href = url;
+        });
+    });
+</script>
 
 <div class="container">
     @{
@@ -12,6 +19,31 @@
             <h2>Showing Statistics for @org.OrganizationName </h2>
 
         </div>
+        <div class="row">
+            <p>Organizational Statistics:</p>
+        </div>
+        <table class="table-bordered" style="width:100%">
+            <thead style="background-color:#33cc33">
+                <tr>
+                    <th>Total Respones</th>
+                    <th>In compliance</th>
+                    <th>Non compliance</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody style="background-color:#ccff99">
+                <tr>
+                    <td>@org.TotalResponseCount</td>
+                    <td>@org.OrgLevelYesScore.ToString("0.00") %</td>
+                    <td>@org.OrgLevelNoScore.ToString("0.00") %</td>
+                    <td><button id="btnShowAnalytics" class="btn-danger">Analytics</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <hr />
+        <br />
+
+        <h3>Section-wise break up of compliance:</h3>
 
         foreach (var i in org.qs)
         {
@@ -30,7 +62,7 @@
                     <b>In Compliance</b>
                 </div>
                 <div class="col-md-2" style="border:1px solid">
-                    <b>NonCompliance</b>
+                    <b>Non Compliance</b>
                 </div>
 
             </div>

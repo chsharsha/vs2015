@@ -18,6 +18,12 @@ namespace InformationSecurityScorecard.Entities
 
         public string AuditingOrg { get; set; }
 
+        public float OrgLevelYesScore { get; set; }
+
+        public float OrgLevelNoScore { get; set; }
+
+        public int TotalResponseCount { get; set; }
+
         public List<QuestionSection> qs { get; set; }
         
 

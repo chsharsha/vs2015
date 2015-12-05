@@ -27,6 +27,7 @@ namespace InformationSecurityScorecard.Implementations
                 org.Country = orgDetails.Country;
                 org.State = orgDetails.State;
                 org.OrganizationName = orgDetails.Organization_Name;
+                org.TotalResponseCount = db.Surveys.Count();
                 org.AuditingOrg = db.Organizations.Where(x => x.Survey_OrganizationId == orgDetails.Survey_OrganizationId).FirstOrDefault().Organization_Name;
                 QuestionSection qs;
                 Question q;
@@ -71,7 +72,206 @@ namespace InformationSecurityScorecard.Implementations
                 }
 
             }
-            
+            FillOrgwisePercentages(org);
+            return org;
+        }
+
+
+
+        public OrgEnt GetDetails(int minExp,int maxExp)
+        {
+            OrgEnt org = new OrgEnt();
+            org.qs = new List<QuestionSection>();
+
+            using (var db = new InfoSecSurveyEntities())
+            {
+                var orgDetails = db.Organizations.Where(x => x.OrganizationId == 3).FirstOrDefault();
+                org.OrganizationID = orgDetails.OrganizationId;
+                org.City = orgDetails.City;
+                org.Country = orgDetails.Country;
+                org.State = orgDetails.State;
+                org.OrganizationName = orgDetails.Organization_Name;
+                var usersList = db.Users.Where(x => x.Months_of_Experience >= minExp && x.Months_of_Experience <= maxExp).Select(x => x.UserId).ToList();
+                var surveyList = db.Surveys.Where(x => usersList.Contains(x.UserId));
+                org.TotalResponseCount = surveyList.Count();
+                var surveyIDList = surveyList.Select(x => x.SurveyId);
+                org.AuditingOrg = db.Organizations.Where(x => x.Survey_OrganizationId == orgDetails.Survey_OrganizationId).FirstOrDefault().Organization_Name;
+                QuestionSection qs;
+                Question q;
+                var dbQsnSecList = db.Questionnaire_Section.ToList();
+
+                foreach (var i in dbQsnSecList)
+                {
+                    qs = new QuestionSection();
+                    qs.QuestionSectionID = i.SectionId;
+                    qs.QuestionSecDescription = i.Section_Description;
+                    qs.QsnList = new List<Question>();
+                    var associatedQsnrs = db.Questionnaires.Where(x => x.SectionId == i.SectionId).ToList();
+                    foreach (var assocQsnr in associatedQsnrs)
+                    {
+                        int yesCount = 0;
+                        int noCount = 0;
+                        q = new Question();
+                        q.QuestionID = assocQsnr.QuestionId;
+                        q.QuestionDescription = assocQsnr.Description;
+                        var qsnInstns = db.Questionnaire_Instance.Where(x => x.QuestionId == assocQsnr.QuestionId).Where(m=>surveyIDList.Contains(m.SurveyId)).Select(x => x.Questionnaire_InstanceId);
+                        foreach (var item in qsnInstns)
+                        {
+                            var ans = db.AnswerInstances.First(x => x.Questionnaire_InstanceId == item).AnswerId;
+                            if (ans.Equals(1))
+                            {
+                                yesCount++;
+                            }
+                            else
+                            {
+                                noCount++;
+                            }
+                        }
+                        q.YesCount = yesCount;
+                        q.NoCount = noCount;
+                        q.TotalResponses = yesCount + noCount;
+                        q.YesPercentage = (float)q.YesCount * 100 / (float)q.TotalResponses;
+                        q.NoPercentage = (float)q.NoCount * 100 / (float)q.TotalResponses;
+                        qs.QsnList.Add(q);
+                    }
+                    FillSectionwisePercentages(qs);
+                    org.qs.Add(qs);
+                }
+
+            }
+            FillOrgwisePercentages(org);
+            return org;
+        }
+
+
+        public OrgEnt GetDetails(int deptNo)
+        {
+            OrgEnt org = new OrgEnt();
+            org.qs = new List<QuestionSection>();
+
+            using (var db = new InfoSecSurveyEntities())
+            {
+                var orgDetails = db.Organizations.Where(x => x.OrganizationId == 3).FirstOrDefault();
+                org.OrganizationID = orgDetails.OrganizationId;
+                org.City = orgDetails.City;
+                org.Country = orgDetails.Country;
+                org.State = orgDetails.State;
+                org.OrganizationName = orgDetails.Organization_Name;
+                var usersList = db.Users.Where(x => x.DepartmentID==deptNo).Select(x => x.UserId).ToList();
+                var surveyList = db.Surveys.Where(x => usersList.Contains(x.UserId));
+                org.TotalResponseCount = surveyList.Count();
+                var surveyIDList = surveyList.Select(x => x.SurveyId);
+                org.AuditingOrg = db.Organizations.Where(x => x.Survey_OrganizationId == orgDetails.Survey_OrganizationId).FirstOrDefault().Organization_Name;
+                QuestionSection qs;
+                Question q;
+                var dbQsnSecList = db.Questionnaire_Section.ToList();
+
+                foreach (var i in dbQsnSecList)
+                {
+                    qs = new QuestionSection();
+                    qs.QuestionSectionID = i.SectionId;
+                    qs.QuestionSecDescription = i.Section_Description;
+                    qs.QsnList = new List<Question>();
+                    var associatedQsnrs = db.Questionnaires.Where(x => x.SectionId == i.SectionId).ToList();
+                    foreach (var assocQsnr in associatedQsnrs)
+                    {
+                        int yesCount = 0;
+                        int noCount = 0;
+                        q = new Question();
+                        q.QuestionID = assocQsnr.QuestionId;
+                        q.QuestionDescription = assocQsnr.Description;
+                        var qsnInstns = db.Questionnaire_Instance.Where(x => x.QuestionId == assocQsnr.QuestionId).Where(m => surveyIDList.Contains(m.SurveyId)).Select(x => x.Questionnaire_InstanceId);
+                        foreach (var item in qsnInstns)
+                        {
+                            var ans = db.AnswerInstances.First(x => x.Questionnaire_InstanceId == item).AnswerId;
+                            if (ans.Equals(1))
+                            {
+                                yesCount++;
+                            }
+                            else
+                            {
+                                noCount++;
+                            }
+                        }
+                        q.YesCount = yesCount;
+                        q.NoCount = noCount;
+                        q.TotalResponses = yesCount + noCount;
+                        q.YesPercentage = (float)q.YesCount * 100 / (float)q.TotalResponses;
+                        q.NoPercentage = (float)q.NoCount * 100 / (float)q.TotalResponses;
+                        qs.QsnList.Add(q);
+                    }
+                    FillSectionwisePercentages(qs);
+                    org.qs.Add(qs);
+                }
+
+            }
+            FillOrgwisePercentages(org);
+            return org;
+        }
+
+
+        public OrgEnt GetDetails(int minExp, int maxExp,int deptNo)
+        {
+            OrgEnt org = new OrgEnt();
+            org.qs = new List<QuestionSection>();
+
+            using (var db = new InfoSecSurveyEntities())
+            {
+                var orgDetails = db.Organizations.Where(x => x.OrganizationId == 3).FirstOrDefault();
+                org.OrganizationID = orgDetails.OrganizationId;
+                org.City = orgDetails.City;
+                org.Country = orgDetails.Country;
+                org.State = orgDetails.State;
+                org.OrganizationName = orgDetails.Organization_Name;
+                var usersList = db.Users.Where(x => x.Months_of_Experience >= minExp && x.Months_of_Experience <= maxExp).Where(m=>m.DepartmentID==deptNo).Select(x => x.UserId).ToList();
+                var surveyList = db.Surveys.Where(x => usersList.Contains(x.UserId));
+                org.TotalResponseCount = surveyList.Count();
+                var surveyIDList = surveyList.Select(x => x.SurveyId);
+                org.AuditingOrg = db.Organizations.Where(x => x.Survey_OrganizationId == orgDetails.Survey_OrganizationId).FirstOrDefault().Organization_Name;
+                QuestionSection qs;
+                Question q;
+                var dbQsnSecList = db.Questionnaire_Section.ToList();
+
+                foreach (var i in dbQsnSecList)
+                {
+                    qs = new QuestionSection();
+                    qs.QuestionSectionID = i.SectionId;
+                    qs.QuestionSecDescription = i.Section_Description;
+                    qs.QsnList = new List<Question>();
+                    var associatedQsnrs = db.Questionnaires.Where(x => x.SectionId == i.SectionId).ToList();
+                    foreach (var assocQsnr in associatedQsnrs)
+                    {
+                        int yesCount = 0;
+                        int noCount = 0;
+                        q = new Question();
+                        q.QuestionID = assocQsnr.QuestionId;
+                        q.QuestionDescription = assocQsnr.Description;
+                        var qsnInstns = db.Questionnaire_Instance.Where(x => x.QuestionId == assocQsnr.QuestionId).Where(m => surveyIDList.Contains(m.SurveyId)).Select(x => x.Questionnaire_InstanceId);
+                        foreach (var item in qsnInstns)
+                        {
+                            var ans = db.AnswerInstances.First(x => x.Questionnaire_InstanceId == item).AnswerId;
+                            if (ans.Equals(1))
+                            {
+                                yesCount++;
+                            }
+                            else
+                            {
+                                noCount++;
+                            }
+                        }
+                        q.YesCount = yesCount;
+                        q.NoCount = noCount;
+                        q.TotalResponses = yesCount + noCount;
+                        q.YesPercentage = (float)q.YesCount * 100 / (float)q.TotalResponses;
+                        q.NoPercentage = (float)q.NoCount * 100 / (float)q.TotalResponses;
+                        qs.QsnList.Add(q);
+                    }
+                    FillSectionwisePercentages(qs);
+                    org.qs.Add(qs);
+                }
+
+            }
+            FillOrgwisePercentages(org);
             return org;
         }
 
@@ -88,6 +288,16 @@ namespace InformationSecurityScorecard.Implementations
 
             lsQ.sectionLevelYes = (float)sumYes * 100 / (float)sumTot;
             lsQ.sectionLevelNo = (float)sumNo * 100 / (float)sumTot;
+        }
+
+
+
+        internal void FillOrgwisePercentages(OrgEnt OEnt)
+        {
+            var yesCount = OEnt.qs.Select(x => x.sectionLevelYes).ToArray().Average();
+            OEnt.OrgLevelYesScore = yesCount;
+            var noCount= OEnt.qs.Select(x => x.sectionLevelNo).ToArray().Average();
+            OEnt.OrgLevelNoScore = noCount;
         }
 
         public List<OrgEnt> GetParticipatingOrganizations()
@@ -248,6 +458,8 @@ namespace InformationSecurityScorecard.Implementations
             }
 
         }
+
+        
 
 
         //public int CreateOrganization(DataAccess.Organization org)

@@ -92,6 +92,31 @@ namespace InformationSecurityScorecard.UnitTests
             int a=1;
         }
 
+        [TestMethod]
+        public void TestPullDetailsWithWorkExFilter()
+        {
+            Implementations.Implementations imp = new Implementations.Implementations();
+            var m = imp.GetDetails(90,140);
+            int a = 1;
+        }
+
+        [TestMethod]
+        public void TestPullDetailsWithWorkExAndDept()
+        {
+            Implementations.Implementations imp = new Implementations.Implementations();
+            var m = imp.GetDetails(10,40,3);
+            int a = 1;
+        }
+
+
+        [TestMethod]
+        public void TestPullDetailsWithDept()
+        {
+            Implementations.Implementations imp = new Implementations.Implementations();
+            var m = imp.GetDetails(4);
+            int a = 1;
+        }
+
 
         [TestMethod]
         public void TestPullParticipatingOrgs()
