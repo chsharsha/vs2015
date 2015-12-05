@@ -31,7 +31,7 @@ namespace InformationSecurityScorecard.UnitTests
                 {
                     string[] fields = parser.ReadFields();
                     var m = fields.ToList().Where(x => !String.IsNullOrEmpty(x)).ToList();
-                    if (m.Count != 55)
+                    if (m.Count != 57)
                     {
 
 

@@ -118,7 +118,7 @@ namespace InformationSecurityScorecard.Implementations
         public void GetNewImports(string[] allResponses)
         {
 
-            var userEmail = allResponses[1];
+            var userEmail = allResponses[57];
             if (!IsEmailExisting(userEmail))
             {
                 Logger.InfoFormat("Importing data of the id {0} ...", userEmail);
@@ -127,7 +127,24 @@ namespace InformationSecurityScorecard.Implementations
                 User u = new User();
                 u.UserName = firstName + " " + lastName;
                 u.User_EmailId = userEmail;
+                var yearsOfExp = allResponses[55];
+                if(yearsOfExp.Contains('.'))
+                {
+                    var m = yearsOfExp.Split('.');
+                    u.Months_of_Experience = Int32.Parse(m[0]) * 12 + Int32.Parse(m[1]);
+                }
+                else
+                {
+                    u.Months_of_Experience = Int32.Parse(yearsOfExp) * 12;
+                }
+                var deptResp = allResponses[56];
+
+                using (var db = new InfoSecSurveyEntities())
+                {
+                    u.DepartmentID = db.Department_of_Work.FirstOrDefault(x => x.Description.Equals(deptResp)).DepartmentId;
+                }
                 var userId = CreateUser(u);
+
                 Survey s = new Survey();
                 s.UserId = userId;
                 var surveyId = CreateSurvey(s);
@@ -201,6 +218,8 @@ namespace InformationSecurityScorecard.Implementations
         };
 
 
+
+       
         internal void SetCommonProperties<T>(T currentObj)
         {
             PropertyInfo propertyInfoDateCreat = currentObj.GetType().GetProperty("Date_Created");

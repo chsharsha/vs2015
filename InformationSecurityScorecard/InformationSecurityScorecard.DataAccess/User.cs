@@ -29,10 +29,13 @@ namespace InformationSecurityScorecard.DataAccess
         public string Date_Created_By { get; set; }
         public int RoleID { get; set; }
         public int OrganizationId { get; set; }
+        public Nullable<int> DepartmentID { get; set; }
+        public Nullable<int> Months_of_Experience { get; set; }
     
         public virtual Organization Organization { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Survey> Surveys { get; set; }
         public virtual UserRole UserRole { get; set; }
+        public virtual Department_of_Work Department_of_Work { get; set; }
     }
 }

@@ -38,5 +38,6 @@ namespace InformationSecurityScorecard.DataAccess
         public virtual DbSet<Survey> Surveys { get; set; }
         public virtual DbSet<UserRole> UserRoles { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Department_of_Work> Department_of_Work { get; set; }
     }
 }

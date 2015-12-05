@@ -75,6 +75,9 @@
     <Compile Include="Communication_Type.cs">
       <DependentUpon>InfoSecSurvey.tt</DependentUpon>
     </Compile>
+    <Compile Include="Department_of_Work.cs">
+      <DependentUpon>InfoSecSurvey.tt</DependentUpon>
+    </Compile>
     <Compile Include="InfoSecSurvey.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

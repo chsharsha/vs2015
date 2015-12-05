@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="aaab8707ee8c4ea8bcea657caed782f7" Name="Diagram1">
+      <Diagram DiagramId="aaab8707ee8c4ea8bcea657caed782f7" Name="Diagram1" ZoomLevel="91">
         <EntityTypeShape EntityType="InfoSecSurveyModel.AnswerInstance" Width="1.5" PointX="9.75" PointY="1.625" IsExpanded="true" />
         <EntityTypeShape EntityType="InfoSecSurveyModel.Answer" Width="1.5" PointX="7.5" PointY="5.875" IsExpanded="true" />
         <EntityTypeShape EntityType="InfoSecSurveyModel.Attachment" Width="1.5" PointX="10" PointY="9.25" IsExpanded="true" />
@@ -17,7 +17,7 @@
         <EntityTypeShape EntityType="InfoSecSurveyModel.Questionnaire_Section" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
         <EntityTypeShape EntityType="InfoSecSurveyModel.Survey" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="InfoSecSurveyModel.UserRole" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="InfoSecSurveyModel.User" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="InfoSecSurveyModel.User" Width="1.5" PointX="3.375" PointY="0.5" IsExpanded="true" />
         <AssociationConnector Association="InfoSecSurveyModel.AnswerIns_FK1" ManuallyRouted="false" />
         <AssociationConnector Association="InfoSecSurveyModel.AnswerIns_FK2" ManuallyRouted="false" />
         <AssociationConnector Association="InfoSecSurveyModel.Comments_FK" ManuallyRouted="false" />
@@ -29,6 +29,8 @@
         <AssociationConnector Association="InfoSecSurveyModel.QuestionIns_FK2" ManuallyRouted="false" />
         <AssociationConnector Association="InfoSecSurveyModel.Survey_FK" ManuallyRouted="false" />
         <AssociationConnector Association="InfoSecSurveyModel.User_PK1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="InfoSecSurveyModel.Department_of_Work" Width="1.5" PointX="3.375" PointY="8.875" />
+        <AssociationConnector Association="InfoSecSurveyModel.FK__Users__Departmen__36B12243" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
