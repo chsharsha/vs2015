@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -38,15 +39,22 @@ namespace NetworkDataset
 
         public static DateTime RandomDay(Random gen)
         {
-            DateTime start = new DateTime(2014, 1, 1);
-           
-            int range = (DateTime.Today - start).Days;
-            return start.AddDays(gen.Next(range));
+            DateTime startDate = new DateTime(2015, 8, 1);
+            DateTime endDate = DateTime.Today;
+            TimeSpan timeSpan = endDate - startDate;
+            
+            TimeSpan newSpan = new TimeSpan(0, gen.Next(0, (int)timeSpan.TotalMinutes), 0);
+            DateTime newDate = startDate + newSpan;
+
+
+            return newDate;
+            //int range = (DateTime.Today - start).Days;
+            //return start.AddDays(gen.Next(range));
             
 
         }
 
-
+        
       
         public static string RandomString(int Size, Random r)
         {
@@ -126,7 +134,7 @@ namespace NetworkDataset
                 {
                     if(i%50000==0)
                     {
-                        Console.Write("{0} records written to the stream", i);
+                        Console.WriteLine("{0} records written to the stream", i);
                     }
                     string line = "";
                     var studentID = "50" + ToolKit.RandomString(6, r);
@@ -135,12 +143,12 @@ namespace NetworkDataset
                     line += newHost.SSID.AddComma(); //SSID
                     line += newHost.LocationID.AddComma();//Location ID
                     line += newHost.HostIP.AddComma();//HostIP
-                    line += ToolKit.RandomDay(r).ToShortDateString().AddComma();//Timestamp
+                    line += ToolKit.RandomDay(r).ToString("MM/dd/yyyy hh:mm:ss tt",CultureInfo.InvariantCulture).AddComma();//Timestamp
 
                     var browserAgent = lstBrowserArray[r.Next(0, lstBrowserArray.Length)];
                     line += (browserAgent.BrowserName + " " + r.Next(browserAgent.StartVersion, browserAgent.LatestVersion).ToString()).AddComma();
                     line += urlArray[r.Next(0, urlArray.Length)].AddComma();
-                    line += ToolKit.RandomString(4, r).AddComma();
+                    line += ToolKit.RandomString(9, r).AddComma();
                     line += buildingNames[r.Next(0, buildingNames.Length)] + floors[r.Next(0, floors.Length)].AddComma();
                     line += ToolKit.RandomIP(r).AddComma();
                     line += "N " + "34." + ToolKit.RandomString(6, r).AddComma();
