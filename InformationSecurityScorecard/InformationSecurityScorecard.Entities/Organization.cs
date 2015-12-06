@@ -29,6 +29,11 @@ namespace InformationSecurityScorecard.Entities
 
     }
 
+    public class DepartmentList
+    {
+        public int ID { get; set; }
+        public string Value { get; set; }
+    }
 
     public class Question
     {

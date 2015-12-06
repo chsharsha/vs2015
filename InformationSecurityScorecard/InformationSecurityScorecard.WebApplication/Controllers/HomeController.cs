@@ -58,10 +58,44 @@ namespace InformationSecurityScorecard.WebApplication.Controllers
             
         }
 
+        [HttpPost]
+        public ActionResult FetchData()
+        {
+            var minExp = Request.Form["minExp"].ToString();
+            var maxExp = Request.Form["maxExp"].ToString();
+            var DropDownVal = Request.Form["ddlDropDownList"].ToString();
+            Implementations.Implementations imp = new Implementations.Implementations();
+            Entities.Organization org = new Entities.Organization();
+            bool bothExpNull = minExp.Equals(string.Empty) && maxExp.Equals(string.Empty);
+            if (!DropDownVal.Equals(string.Empty) && bothExpNull)
+            {
+                org = imp.GetDetails(Int32.Parse(DropDownVal));
+            }
+            else if(DropDownVal.Equals(string.Empty))
+            {
+                org = imp.GetDetails(Int32.Parse(minExp), Int32.Parse(maxExp));
+            }
+            else
+            {
+                org = imp.GetDetails(Int32.Parse(minExp), Int32.Parse(maxExp),Int32.Parse(DropDownVal));
 
+            }
+            TempData["orgEnt"] = org;
+            return RedirectToAction("FilteredResults", "Home");
+        }
         public ActionResult ShowFilterPage()
         {
-            
+
+            Implementations.Implementations imp = new Implementations.Implementations();
+            ViewBag.DeptList= new SelectList(imp.GetDepartments(), "ID", "Value");
+            return View();
+
+        }
+
+        public ActionResult FilteredResults()
+        {
+            var m = (Entities.Organization)TempData["orgEnt"];
+            ViewBag.AllDetails = m;
             return View();
 
         }

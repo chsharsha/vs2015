@@ -143,7 +143,15 @@ namespace InformationSecurityScorecard.Implementations
             return org;
         }
 
-
+        public List<DepartmentList> GetDepartments()
+        {
+            List<DepartmentList> lstDep = new List<DepartmentList>();
+            using (var db = new InfoSecSurveyEntities())
+            {
+                db.Department_of_Work.ToList().ForEach(x => lstDep.Add(new DepartmentList() { ID = x.DepartmentId, Value = x.Description }));
+                return lstDep;
+            }
+        }
         public OrgEnt GetDetails(int deptNo)
         {
             OrgEnt org = new OrgEnt();
