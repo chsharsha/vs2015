@@ -64,23 +64,27 @@ namespace InformationSecurityScorecard.WebApplication.Controllers
             var minExp = Request.Form["minExp"].ToString();
             var maxExp = Request.Form["maxExp"].ToString();
             var DropDownVal = Request.Form["ddlDropDownList"].ToString();
+            var resultNotice = "Showing results for ";
             Implementations.Implementations imp = new Implementations.Implementations();
             Entities.Organization org = new Entities.Organization();
             bool bothExpNull = minExp.Equals(string.Empty) && maxExp.Equals(string.Empty);
             if (!DropDownVal.Equals(string.Empty) && bothExpNull)
             {
                 org = imp.GetDetails(Int32.Parse(DropDownVal));
+                resultNotice += "the department " + imp.GetDepartments().First(x => x.ID == Int32.Parse(DropDownVal)).Value;
             }
             else if(DropDownVal.Equals(string.Empty))
             {
                 org = imp.GetDetails(Int32.Parse(minExp), Int32.Parse(maxExp));
+                resultNotice += " minimum workex of " + minExp + " months and maximum workex of " + maxExp + " months";
             }
             else
             {
                 org = imp.GetDetails(Int32.Parse(minExp), Int32.Parse(maxExp),Int32.Parse(DropDownVal));
-
+                resultNotice += " minimum workex of " + minExp + " months and maximum workex of " + maxExp + " months and belonging to the department "+ imp.GetDepartments().First(x => x.ID == Int32.Parse(DropDownVal)).Value; 
             }
             TempData["orgEnt"] = org;
+            TempData["bannerMsg"] = resultNotice;
             return RedirectToAction("FilteredResults", "Home");
         }
         public ActionResult ShowFilterPage()
@@ -96,6 +100,7 @@ namespace InformationSecurityScorecard.WebApplication.Controllers
         {
             var m = (Entities.Organization)TempData["orgEnt"];
             ViewBag.AllDetails = m;
+            ViewBag.BannerMsg = TempData["bannerMsg"].ToString();
             return View();
 
         }

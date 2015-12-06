@@ -5,7 +5,7 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        $('#btnShowAnalytics').click(function () {
+        $('.btnShowAnalytics').click(function () {
             var url = '@Url.Action("ShowFilterPage", "Home")';
             window.location.href = url;
         });
@@ -17,72 +17,81 @@
         var org = (InformationSecurityScorecard.Entities.Organization)ViewBag.AllDetails;
         <div class="row" style="text-align:center">
             <h2>Showing Statistics for @org.OrganizationName </h2>
-
-        </div>
-        <div class="row">
-            <p>Organizational Statistics:</p>
-        </div>
-        <table class="table-bordered" style="width:100%">
-            <thead style="background-color:#33cc33">
-                <tr>
-                    <th>Total Respones</th>
-                    <th>In compliance</th>
-                    <th>Non compliance</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody style="background-color:#ccff99">
-                <tr>
-                    <td>@org.TotalResponseCount</td>
-                    <td>@org.OrgLevelYesScore.ToString("0.00") %</td>
-                    <td>@org.OrgLevelNoScore.ToString("0.00") %</td>
-                    <td><button id="btnShowAnalytics" class="btn-danger">Analytics</button></td>
-                </tr>
-            </tbody>
-        </table>
-        <hr />
-        <br />
-
-        <h3>Section-wise break up of compliance:</h3>
-
-        foreach (var i in org.qs)
-        {
-
-            <hr />
-
-            <div class="row" style="text-align:center;font-weight:bold;">
-                @i.QuestionSecDescription---- Total Compliance = @i.sectionLevelYes.ToString("0.00") %  --- Total noncompliance = @i.sectionLevelNo.ToString("0.00") %
-            </div>
-
-            <div class="row" style="border:1px solid;background-color:#33cc33;">
-                <div class="col-md-8" style="border:1px solid">
-                    <b>Question</b>
-                </div>
-                <div class="col-md-2" style="border:1px solid">
-                    <b>In Compliance</b>
-                </div>
-                <div class="col-md-2" style="border:1px solid">
-                    <b>Non Compliance</b>
-                </div>
-
-            </div>
-            foreach (var qsn in i.QsnList)
+            @if(org.TotalResponseCount==0)
             {
-
-                <div class="row" style="border:1px solid;background-color:#ccff99">
-                    <div class="col-md-8" style="border:1px solid">
-                        @qsn.QuestionDescription
-                    </div>
-                    <div class="col-md-2" style="border:1px solid">
-                        @qsn.YesPercentage.ToString("0.00") %
-                    </div>
-                    <div class="col-md-2" style="border:1px solid">
-                        @qsn.NoPercentage.ToString("0.00") %
-                    </div>
-
-                </div>
+                <h3>No results for the selected criteria. Click here to select again. <button class="btn-danger btnShowAnalytics">Analytics</button> </h3>
             }
-        }
+            else
+            {
+                <h3>@ViewBag.BannerMsg</h3>
+
+                <div class="row">
+                    <p>Organizational Statistics:</p>
+                </div>
+                <table class="table-bordered" style="width:100%">
+                    <thead style="background-color:#33cc33">
+                        <tr>
+                            <th>Total Respones</th>
+                            <th>In compliance</th>
+                            <th>Non compliance</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody style="background-color:#ccff99">
+                        <tr>
+                            <td>@org.TotalResponseCount</td>
+                            <td>@org.OrgLevelYesScore.ToString("0.00") %</td>
+                            <td>@org.OrgLevelNoScore.ToString("0.00") %</td>
+                            <td><button class="btn-danger btnShowAnalytics">Analytics</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <hr />
+                <br />
+
+                <h3>Section-wise break up of compliance:</h3>
+
+                foreach (var i in org.qs)
+                {
+
+                    <hr />
+
+                    <div class="row" style="text-align:center;font-weight:bold;">
+                        @i.QuestionSecDescription---- Total Compliance = @i.sectionLevelYes.ToString("0.00") %  --- Total noncompliance = @i.sectionLevelNo.ToString("0.00") %
+                    </div>
+
+                    <div class="row" style="border:1px solid;background-color:#33cc33;">
+                        <div class="col-md-8" style="border:1px solid">
+                            <b>Question</b>
+                        </div>
+                        <div class="col-md-2" style="border:1px solid">
+                            <b>In Compliance</b>
+                        </div>
+                        <div class="col-md-2" style="border:1px solid">
+                            <b>Non Compliance</b>
+                        </div>
+
+                    </div>
+                    foreach (var qsn in i.QsnList)
+                    {
+
+                        <div class="row" style="border:1px solid;background-color:#ccff99">
+                            <div class="col-md-8" style="border:1px solid">
+                                @qsn.QuestionDescription
+                            </div>
+                            <div class="col-md-2" style="border:1px solid">
+                                @qsn.YesPercentage.ToString("0.00") %
+                            </div>
+                            <div class="col-md-2" style="border:1px solid">
+                                @qsn.NoPercentage.ToString("0.00") %
+                            </div>
+
+                        </div>
+                    }
+                }
+            }
+        </div>
+      
 
 
     }
