@@ -55,7 +55,7 @@ namespace InformationSecurityScorecard.WebApplication.Controllers
 
             ViewBag.AllDetails = imp.GetDetails();
             return View();
-            
+
         }
 
         [HttpPost]
@@ -73,15 +73,15 @@ namespace InformationSecurityScorecard.WebApplication.Controllers
                 org = imp.GetDetails(Int32.Parse(DropDownVal));
                 resultNotice += "the department " + imp.GetDepartments().First(x => x.ID == Int32.Parse(DropDownVal)).Value;
             }
-            else if(DropDownVal.Equals(string.Empty))
+            else if (DropDownVal.Equals(string.Empty))
             {
                 org = imp.GetDetails(Int32.Parse(minExp), Int32.Parse(maxExp));
                 resultNotice += " minimum workex of " + minExp + " months and maximum workex of " + maxExp + " months";
             }
             else
             {
-                org = imp.GetDetails(Int32.Parse(minExp), Int32.Parse(maxExp),Int32.Parse(DropDownVal));
-                resultNotice += " minimum workex of " + minExp + " months and maximum workex of " + maxExp + " months and belonging to the department "+ imp.GetDepartments().First(x => x.ID == Int32.Parse(DropDownVal)).Value; 
+                org = imp.GetDetails(Int32.Parse(minExp), Int32.Parse(maxExp), Int32.Parse(DropDownVal));
+                resultNotice += " minimum workex of " + minExp + " months and maximum workex of " + maxExp + " months and belonging to the department " + imp.GetDepartments().First(x => x.ID == Int32.Parse(DropDownVal)).Value;
             }
             TempData["orgEnt"] = org;
             TempData["bannerMsg"] = resultNotice;
@@ -91,9 +91,22 @@ namespace InformationSecurityScorecard.WebApplication.Controllers
         {
 
             Implementations.Implementations imp = new Implementations.Implementations();
-            ViewBag.DeptList= new SelectList(imp.GetDepartments(), "ID", "Value");
+            ViewBag.DeptList = new SelectList(imp.GetDepartments(), "ID", "Value");
             return View();
 
+        }
+
+        public FileResult Download()
+        {
+            Implementations.Implementations imp = new Implementations.Implementations();
+            var content = imp.GetDetails();
+            DocumentGeneration.ITextSharpDocGenerator i = new DocumentGeneration.ITextSharpDocGenerator();
+            var fileName = i.CreateOrgTable(content);
+
+
+            byte[] fileBytes = System.IO.File.ReadAllBytes(fileName);
+            string fileNameDL = "SurveyResults.pdf";
+            return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileNameDL);
         }
 
         public ActionResult FilteredResults()
@@ -107,12 +120,12 @@ namespace InformationSecurityScorecard.WebApplication.Controllers
 
         public ActionResult Error()
         {
-            
-            Exception ex =(Exception) RouteData.Values["error"];
+
+            Exception ex = (Exception)RouteData.Values["error"];
             ViewBag.ErrorMsg = ex.Message;
             return View();
         }
 
-        
+
     }
 }

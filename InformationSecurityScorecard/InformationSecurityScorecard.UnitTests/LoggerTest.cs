@@ -85,6 +85,17 @@ namespace InformationSecurityScorecard.UnitTests
 
 
         [TestMethod]
+        public void TestDocumentGenerateWithData()
+        {
+            Implementations.Implementations imp = new Implementations.Implementations();
+            var m = imp.GetDetails();
+            ITextSharpDocGenerator d = new ITextSharpDocGenerator();
+            var strFileName=d.CreateOrgTable(m);
+
+        }
+
+
+        [TestMethod]
         public void TestPullDetails()
         {
             Implementations.Implementations imp = new Implementations.Implementations();

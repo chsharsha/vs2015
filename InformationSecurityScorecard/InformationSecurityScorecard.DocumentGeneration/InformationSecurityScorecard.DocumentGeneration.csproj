@@ -51,6 +51,12 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InformationSecurityScorecard.Entities\InformationSecurityScorecard.Entities.csproj">
+      <Project>{b4b8681a-4702-41b6-8651-835d908cbfb1}</Project>
+      <Name>InformationSecurityScorecard.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

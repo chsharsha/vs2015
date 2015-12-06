@@ -147,6 +147,10 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\InformationSecurityScorecard.DocumentGeneration\InformationSecurityScorecard.DocumentGeneration.csproj">
+      <Project>{9f23af9e-54fa-495a-9510-da5eb3646428}</Project>
+      <Name>InformationSecurityScorecard.DocumentGeneration</Name>
+    </ProjectReference>
     <ProjectReference Include="..\InformationSecurityScorecard.Entities\InformationSecurityScorecard.Entities.csproj">
       <Project>{b4b8681a-4702-41b6-8651-835d908cbfb1}</Project>
       <Name>InformationSecurityScorecard.Entities</Name>
