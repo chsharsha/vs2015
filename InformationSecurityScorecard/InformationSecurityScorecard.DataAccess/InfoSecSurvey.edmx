@@ -52,7 +52,7 @@
             <PropertyRef Name="Communication_TypeId" />
           </Key>
           <Property Name="Communication_TypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Decsription" Type="varchar" MaxLength="50" />
+          <Property Name="Decsription" Type="varchar" MaxLength="1000" />
         </EntityType>
         <EntityType Name="Department_of_Work">
           <Key>
@@ -132,7 +132,7 @@
             <PropertyRef Name="UserId" />
           </Key>
           <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="UserName" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="200" />
           <Property Name="User_EmailId" Type="varchar" MaxLength="50" />
           <Property Name="Date_Modified" Type="date" />
           <Property Name="Date_Modified_By" Type="varchar" MaxLength="30" />
@@ -409,7 +409,7 @@
             <PropertyRef Name="Communication_TypeId" />
           </Key>
           <Property Name="Communication_TypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Decsription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Decsription" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Organization">
           <Key>
@@ -494,7 +494,7 @@
             <PropertyRef Name="UserId" />
           </Key>
           <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="User_EmailId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Date_Modified" Type="DateTime" Precision="0" />
           <Property Name="Date_Modified_By" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />

@@ -10,6 +10,9 @@ ALTER TABLE Users
 DROP COLUMN Years_of_Experience
 
 
+ALTER TABLE Users
+ALTER COLUMN UserName varchar(200)
+
 ALTER TABLE communication_Type
 ALTER COLUMN Decsription varchar(1000) 
 
@@ -20,3 +23,6 @@ Insert into Communication_Type values('<h2>Thank You for participating. The requ
 
 
 select * from Communication_Log
+
+
+select * from Users
