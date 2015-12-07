@@ -63,8 +63,8 @@ namespace InformationSecurityScorecard.Implementations
                         q.YesCount = yesCount;
                         q.NoCount = noCount;
                         q.TotalResponses = yesCount + noCount;
-                        q.YesPercentage = (float)q.YesCount*100 / (float)q.TotalResponses;
-                        q.NoPercentage = (float)q.NoCount *100/ (float)q.TotalResponses;
+                        q.YesPercentage = (float)q.YesCount * 100 / (float)q.TotalResponses;
+                        q.NoPercentage = (float)q.NoCount * 100 / (float)q.TotalResponses;
                         qs.QsnList.Add(q);
                     }
                     FillSectionwisePercentages(qs);
@@ -76,9 +76,42 @@ namespace InformationSecurityScorecard.Implementations
             return org;
         }
 
+        public void SendEmail(List<string> SenderList, string fileName)
+        {
+            using (var db = new InfoSecSurveyEntities())
+            {
+                CommunicationModule.CommunicationManager cm = new CommunicationModule.CommunicationManager();
+
+                var fromAddress = "dbms.ubmis2015@gmail.com";
+                var Subject = "Assessment Report for questionnaire";
+                var cmType = db.Communication_Type.First();
+                cm.SendEmail(SenderList, fileName, cmType.Decsription,fromAddress,Subject);
+                Communication_Log cmLog;
+                Attachment am;
+                foreach (var sender in SenderList)
+                {
+                    cmLog = new Communication_Log();
+                    cmLog.Communication_TypeId = cmType.Communication_TypeId;
+                    cmLog.Date_Log = DateTime.Now;
+                    cmLog.FromAddress = fromAddress;
+                    cmLog.ToAddress = sender;
+                    cmLog.MailSubject = Subject;
+                    db.Communication_Log.Add(cmLog);
+                    db.SaveChanges();
+                    var logID = cmLog.LogId;
+                    am = new Attachment();
+                    am.LogId = logID;
+                    am.FileName = fileName;
+                    db.Attachments.Add(am);
+                    db.SaveChanges();
+                }
 
 
-        public OrgEnt GetDetails(int minExp,int maxExp)
+
+            }
+        }
+
+        public OrgEnt GetDetails(int minExp, int maxExp)
         {
             OrgEnt org = new OrgEnt();
             org.qs = new List<QuestionSection>();
@@ -114,7 +147,7 @@ namespace InformationSecurityScorecard.Implementations
                         q = new Question();
                         q.QuestionID = assocQsnr.QuestionId;
                         q.QuestionDescription = assocQsnr.Description;
-                        var qsnInstns = db.Questionnaire_Instance.Where(x => x.QuestionId == assocQsnr.QuestionId).Where(m=>surveyIDList.Contains(m.SurveyId)).Select(x => x.Questionnaire_InstanceId);
+                        var qsnInstns = db.Questionnaire_Instance.Where(x => x.QuestionId == assocQsnr.QuestionId).Where(m => surveyIDList.Contains(m.SurveyId)).Select(x => x.Questionnaire_InstanceId);
                         foreach (var item in qsnInstns)
                         {
                             var ans = db.AnswerInstances.First(x => x.Questionnaire_InstanceId == item).AnswerId;
@@ -165,7 +198,7 @@ namespace InformationSecurityScorecard.Implementations
                 org.Country = orgDetails.Country;
                 org.State = orgDetails.State;
                 org.OrganizationName = orgDetails.Organization_Name;
-                var usersList = db.Users.Where(x => x.DepartmentID==deptNo).Select(x => x.UserId).ToList();
+                var usersList = db.Users.Where(x => x.DepartmentID == deptNo).Select(x => x.UserId).ToList();
                 var surveyList = db.Surveys.Where(x => usersList.Contains(x.UserId));
                 org.TotalResponseCount = surveyList.Count();
                 var surveyIDList = surveyList.Select(x => x.SurveyId);
@@ -218,7 +251,7 @@ namespace InformationSecurityScorecard.Implementations
         }
 
 
-        public OrgEnt GetDetails(int minExp, int maxExp,int deptNo)
+        public OrgEnt GetDetails(int minExp, int maxExp, int deptNo)
         {
             OrgEnt org = new OrgEnt();
             org.qs = new List<QuestionSection>();
@@ -231,7 +264,7 @@ namespace InformationSecurityScorecard.Implementations
                 org.Country = orgDetails.Country;
                 org.State = orgDetails.State;
                 org.OrganizationName = orgDetails.Organization_Name;
-                var usersList = db.Users.Where(x => x.Months_of_Experience >= minExp && x.Months_of_Experience <= maxExp).Where(m=>m.DepartmentID==deptNo).Select(x => x.UserId).ToList();
+                var usersList = db.Users.Where(x => x.Months_of_Experience >= minExp && x.Months_of_Experience <= maxExp).Where(m => m.DepartmentID == deptNo).Select(x => x.UserId).ToList();
                 var surveyList = db.Surveys.Where(x => usersList.Contains(x.UserId));
                 org.TotalResponseCount = surveyList.Count();
                 var surveyIDList = surveyList.Select(x => x.SurveyId);
@@ -288,7 +321,7 @@ namespace InformationSecurityScorecard.Implementations
             var yesCount = lsQ.QsnList.Select(x => x.YesCount).ToArray();
             var sumYes = yesCount.Sum();
 
-            var noCount= lsQ.QsnList.Select(x => x.NoCount).ToArray();
+            var noCount = lsQ.QsnList.Select(x => x.NoCount).ToArray();
             var sumNo = noCount.Sum();
 
             var totCount = lsQ.QsnList.Select(x => x.TotalResponses).ToArray();
@@ -304,7 +337,7 @@ namespace InformationSecurityScorecard.Implementations
         {
             var yesCount = OEnt.qs.Select(x => x.sectionLevelYes).ToArray().Average();
             OEnt.OrgLevelYesScore = yesCount;
-            var noCount= OEnt.qs.Select(x => x.sectionLevelNo).ToArray().Average();
+            var noCount = OEnt.qs.Select(x => x.sectionLevelNo).ToArray().Average();
             OEnt.OrgLevelNoScore = noCount;
         }
 
@@ -314,7 +347,7 @@ namespace InformationSecurityScorecard.Implementations
             {
                 var orgs = db.Organizations.Where(x => x.OrganizationId != -1).ToList();
                 List<OrgEnt> lstOrgEnt = new List<OrgEnt>();
-                foreach(var i in orgs)
+                foreach (var i in orgs)
                 {
                     lstOrgEnt.Add(new OrgEnt() { OrganizationID = i.OrganizationId, OrganizationName = i.Organization_Name, City = i.City, State = i.State, Country = i.Country });
                 }
@@ -346,7 +379,7 @@ namespace InformationSecurityScorecard.Implementations
                 u.UserName = firstName + " " + lastName;
                 u.User_EmailId = userEmail;
                 var yearsOfExp = allResponses[55];
-                if(yearsOfExp.Contains('.'))
+                if (yearsOfExp.Contains('.'))
                 {
                     var m = yearsOfExp.Split('.');
                     u.Months_of_Experience = Int32.Parse(m[0]) * 12 + Int32.Parse(m[1]);
@@ -437,7 +470,7 @@ namespace InformationSecurityScorecard.Implementations
 
 
 
-       
+
         internal void SetCommonProperties<T>(T currentObj)
         {
             PropertyInfo propertyInfoDateCreat = currentObj.GetType().GetProperty("Date_Created");
@@ -467,7 +500,7 @@ namespace InformationSecurityScorecard.Implementations
 
         }
 
-        
+
 
 
         //public int CreateOrganization(DataAccess.Organization org)

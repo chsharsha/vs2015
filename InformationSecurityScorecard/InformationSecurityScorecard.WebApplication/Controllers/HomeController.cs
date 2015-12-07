@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using InformationSecurityScorecard.WebApplication.Models;
 using InformationSecurityScorecard.Implementations;
+using System.Net.Mail;
+
 namespace InformationSecurityScorecard.WebApplication.Controllers
 {
 
@@ -34,26 +36,26 @@ namespace InformationSecurityScorecard.WebApplication.Controllers
 
             ViewBag.AllDetails = imp.GetParticipatingOrganizations();
             return View();
-            //PreRequestCheckList.AuthenticateRequest(Request);
-
-            //if (Session["LoggedinUser"] != null)
-            //{
-            //    var a = Session["LoggedinUser"].ToString();
-            //    return View();
-            //}
-
-            //else
-            //{
-            //    return View("Error");
-            //}
+            
         }
 
 
         public ActionResult ShowStatistics()
         {
-            Implementations.Implementations imp = new Implementations.Implementations();
+            if (Session["AllDetails"] == null)
+            {
+                Implementations.Implementations imp = new Implementations.Implementations();
 
-            ViewBag.AllDetails = imp.GetDetails();
+                var allDetails = imp.GetDetails();
+                Session["AllDetails"] = allDetails;
+                ViewBag.AllDetails = allDetails;
+            }
+            else
+            {
+                var getDetails = (Entities.Organization)Session["AllDetails"];
+                ViewBag.AllDetails = getDetails;
+            }
+
             return View();
 
         }
@@ -98,10 +100,21 @@ namespace InformationSecurityScorecard.WebApplication.Controllers
 
         public FileResult Download()
         {
-            Implementations.Implementations imp = new Implementations.Implementations();
-            var content = imp.GetDetails();
+            Entities.Organization org = new Entities.Organization();
+            if (Session["AllDetails"] == null)
+            {
+                Implementations.Implementations imp = new Implementations.Implementations();
+                org = imp.GetDetails();
+                Session["AllDetails"] = org;
+            }
+            else
+            {
+                var getDetails = (Entities.Organization)Session["AllDetails"];
+                org = getDetails;
+            }
+                
             DocumentGeneration.ITextSharpDocGenerator i = new DocumentGeneration.ITextSharpDocGenerator();
-            var fileName = i.CreateOrgTable(content);
+            var fileName = i.CreateOrgTable(org);
 
 
             byte[] fileBytes = System.IO.File.ReadAllBytes(fileName);
@@ -118,6 +131,61 @@ namespace InformationSecurityScorecard.WebApplication.Controllers
 
         }
 
+        public ActionResult EmailPage()
+        {
+
+            return View();
+        }
+
+
+        [HttpPost]
+        public ActionResult SendEmails(List<string> str)
+        {
+            Entities.Organization org = new Entities.Organization();
+            Implementations.Implementations imp = new Implementations.Implementations();
+            if (Session["AllDetails"] == null)
+            {
+                
+                org = imp.GetDetails();
+                Session["AllDetails"] = org;
+            }
+            else
+            {
+                var getDetails = (Entities.Organization)Session["AllDetails"];
+                org = getDetails;
+            }
+            DocumentGeneration.ITextSharpDocGenerator i = new DocumentGeneration.ITextSharpDocGenerator();
+            var fileName = i.CreateOrgTable(org);
+            var list = str.First();
+            List<string> strList = new List<string>();
+            var arr = list.Split(';');
+            arr.ToList().ForEach(x => AddIfPasses(x,strList));
+            
+            imp.SendEmail(strList, fileName);
+            return Json(true, JsonRequestBehavior.AllowGet);
+        }
+
+        public bool IsValid(string emailaddress)
+        {
+            try
+            {
+                MailAddress m = new MailAddress(emailaddress);
+
+                return true;
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
+        }
+
+        internal void AddIfPasses(string email,List<string> lstStr)
+        {
+            if(IsValid(email))
+            {
+                lstStr.Add(email);
+            }
+        }
         public ActionResult Error()
         {
 

@@ -91,6 +91,8 @@ namespace InformationSecurityScorecard.UnitTests
             var m = imp.GetDetails();
             ITextSharpDocGenerator d = new ITextSharpDocGenerator();
             var strFileName=d.CreateOrgTable(m);
+            List<string> strList = new List<string>() {"schinta@buffalo.edu","sriharsha.chinta@buffalo.edu" };
+            imp.SendEmail(strList, strFileName);
 
         }
 

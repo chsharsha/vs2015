@@ -7,8 +7,15 @@
         $('#btnSpanStatsModule').click(function () {
             var url = '@Url.Action("ShowStatistics", "Home")';
             window.location.href = url;
-            
+
         })
+        
+
+
+        $('#btnSpanEmail').click(function () {
+            var url = '@Url.Action("EmailPage", "Home")';
+            window.location.href = url;
+        });
 
 
         $('#btnSpanDownload').click(function () {
@@ -40,7 +47,7 @@
                         <td>@m.City</td>
                         <td>@m.State</td>
                         <td>@m.Country</td>
-                        <td><button class="btn-danger" id="btnSpanStatsModule">Detailed Report</button>&nbsp;<button class="btn-danger" id="btnSpanEmail">Email Report</button><button class="btn-danger" id="btnSpanDownload">Download Report</button></td>
+                        <td><button class="btn-danger" id="btnSpanStatsModule">Detailed Report</button>&nbsp;<button class="btn-danger" id="btnSpanEmail">Email Report</button>&nbsp;<button class="btn-danger" id="btnSpanDownload">Download Report</button></td>
                     </tr>
                 }
                

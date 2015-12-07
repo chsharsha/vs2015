@@ -136,6 +136,7 @@
     <Content Include="Views\Home\ShowStatistics.cshtml" />
     <Content Include="Views\Home\ShowFilterPage.cshtml" />
     <Content Include="Views\Home\FilteredResults.cshtml" />
+    <Content Include="Views\Home\EmailPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -53,6 +53,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\InformationSecurityScorecard.CommunicationModule\InformationSecurityScorecard.CommunicationModule.csproj">
+      <Project>{2c81f1cb-e934-4863-877f-6aed43f0953a}</Project>
+      <Name>InformationSecurityScorecard.CommunicationModule</Name>
+    </ProjectReference>
     <ProjectReference Include="..\InformationSecurityScorecard.DataAccess\InformationSecurityScorecard.DataAccess.csproj">
       <Project>{b3637fa4-bbdb-4da9-a010-9b63cdcfeb35}</Project>
       <Name>InformationSecurityScorecard.DataAccess</Name>

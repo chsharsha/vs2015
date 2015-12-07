@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "EmailPage";
+}
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#btnSend").click(function () {
+            var emlList = $('#txtEmails').val();
+            $.ajax({
+                url: '/Home/SendEmails',
+                type: 'POST',
+                data: JSON.stringify({ 'str': emlList }),
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    var url='@Url.Action("Index","Home")';
+                    window.location.href = url;
+                }
+            });
+
+        });
+    });
+
+</script>
+<h2>Send reports as e-mail</h2>
+<div class="container">
+    
+    <div class="row">
+        <div class="col-md-6">
+            <p>Enter the email addresses below. Separate multiple ids with a semi colon.</p>
+        </div>
+        <div class="col-md-6">
+            <input type="text" class="form-control" id="txtEmails" style="width:100%" />
+        </div>
+    </div>
+   <br />
+    <div class="row" style="text-align:center">
+        <button id="btnSend" class="btn-danger">Send</button>
+    </div>
+</div>
+

@@ -10,5 +10,13 @@ ALTER TABLE Users
 DROP COLUMN Years_of_Experience
 
 
-ALTER TABLE Users
-ALTER COLUMN User_EmailId varchar(50) 
+ALTER TABLE communication_Type
+ALTER COLUMN Decsription varchar(1000) 
+
+
+select * from communication_Type
+
+Insert into Communication_Type values('<h2>Thank You for participating. The requested reports are attached to this mailer.</h2>')
+
+
+select * from Communication_Log
