@@ -19,7 +19,7 @@
             <h2>Showing Statistics for @org.OrganizationName </h2>
             @if(org.TotalResponseCount==0)
             {
-                <h3>No results for the selected criteria. Click here to select again. <button class="btn-danger btnShowAnalytics">Analytics</button> </h3>
+                <h3>No results for the selected criteria. Click here to select again. <button class="btn-primary btnShowAnalytics">Analytics</button> </h3>
             }
             else
             {
@@ -42,7 +42,7 @@
                             <td>@org.TotalResponseCount</td>
                             <td>@org.OrgLevelYesScore.ToString("0.00") %</td>
                             <td>@org.OrgLevelNoScore.ToString("0.00") %</td>
-                            <td><button class="btn-danger btnShowAnalytics">Analytics</button></td>
+                            <td><button class="btn-primary btnShowAnalytics">Analytics</button></td>
                         </tr>
                     </tbody>
                 </table>

@@ -26,3 +26,9 @@ select * from Communication_Log
 
 
 select * from Users
+
+
+select * from communication_log
+
+
+select * from Attachments
