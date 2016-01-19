@@ -74,6 +74,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MongoControlCenter\MongoControlCenter.csproj">
+      <Project>{2750f7de-773d-47f6-a288-0e3a52ef2274}</Project>
+      <Name>MongoControlCenter</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MVCMongo\MVCMongo.csproj">
       <Project>{35428cf8-9408-4c5e-b0e1-aec49e9203f0}</Project>
       <Name>MVCMongo</Name>

@@ -5,15 +5,46 @@ using MongoDB.Bson.IO;
 using MongoDB.Bson.Serialization;
 using System.Collections.Generic;
 using MongoDB.Bson.Serialization.Attributes;
+using MongoControlCenter;
 
 namespace UnitTestProject
 {
     [TestClass]
     public class UnitTest1
     {
+
         public UnitTest1()
         {
             JsonWriterSettings.Defaults.Indent = true;
+        }
+
+
+
+
+
+
+
+        [TestMethod]
+        public void CheckInsertIntoDB()
+        {
+
+            var m = new Rental();
+            //m.ID = ObjectId.GenerateNewId().ToString();
+            m.NumberOfRooms = 5;
+            m.Description = "very spacious. Off street parking";
+            m.Price = 327;
+            m.Address = new List<string>();
+            m.Address.Add("Brooklyn Street");
+            Implementations imp = new Implementations();
+            var l = imp.InsertRental(m);
+
+            var f = imp.FindRental(l);
+            //var filter = Builders<Rental>.Filter.Empty;
+
+            //int u = findFluent.ToList().Where(x => x.Id.ToString().Equals(m.Id.ToString())).Count();
+            Assert.AreEqual(f.Count, 1);
+
+
         }
         [TestMethod]
         public void EmptyDocument()

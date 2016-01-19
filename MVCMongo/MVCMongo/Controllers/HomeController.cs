@@ -9,17 +9,9 @@ namespace MVCMongo.Controllers
 {
     public class HomeController : Controller
     {
-        public IMongoDatabase Database;
-        public HomeController()
-        {
-            var client = new MongoClient();
-            Database = client.GetDatabase("realestate");
-            
-        }
+      
         public ActionResult Index()
         {
-            Database.CreateCollection("testing");
-            var m=Database.ListCollections();
             return View();
         }
 
