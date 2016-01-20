@@ -6,6 +6,7 @@ using MongoDB.Bson.Serialization;
 using System.Collections.Generic;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoControlCenter;
+using MongoDB.Driver;
 
 namespace UnitTestProject
 {
@@ -27,6 +28,44 @@ namespace UnitTestProject
         [TestMethod]
         public void CheckInsertIntoDB()
         {
+            Implementations imp = new Implementations();
+            var prevTotCount = imp.TotalCount();
+            
+            var m = new Rental();
+            //m.ID = ObjectId.GenerateNewId().ToString();
+            m.NumberOfRooms = 5;
+            m.Description = "very spacious. Off street parking";
+            m.Price = 327;
+            m.Address = new List<string>();
+            m.Address.Add("Brooklyn Street");
+            
+            var l = imp.InsertRental(m).Result;
+
+            var f = imp.FindRental(l);
+            var finalTotCount = imp.TotalCount();
+            //var filter = Builders<Rental>.Filter.Empty;
+
+            //int u = findFluent.ToList().Where(x => x.Id.ToString().Equals(m.Id.ToString())).Count();
+            Assert.AreEqual(f.Count, 1);
+            Assert.AreEqual(prevTotCount, finalTotCount-1,"Something wrong with count");
+
+
+        }
+
+        [TestMethod]
+        public void TestPriceChecker()
+        {
+            Implementations imp = new Implementations();
+            var m=imp.PriceCheck(400, 460);
+            Console.WriteLine(m.Count);
+        }
+
+
+        [TestMethod]
+        public void CheckDeleteIntoDB()
+        {
+            Implementations imp = new Implementations();
+            var prevTotCount = imp.TotalCount();
 
             var m = new Rental();
             //m.ID = ObjectId.GenerateNewId().ToString();
@@ -35,16 +74,52 @@ namespace UnitTestProject
             m.Price = 327;
             m.Address = new List<string>();
             m.Address.Add("Brooklyn Street");
-            Implementations imp = new Implementations();
-            var l = imp.InsertRental(m);
+
+            var l = imp.InsertRental(m).Result;
 
             var f = imp.FindRental(l);
+            var BeforeDeleteCount = imp.TotalCount();
+
+            imp.RemoveRental(l).Wait();
+            var finalCount = imp.TotalCount();
             //var filter = Builders<Rental>.Filter.Empty;
 
             //int u = findFluent.ToList().Where(x => x.Id.ToString().Equals(m.Id.ToString())).Count();
             Assert.AreEqual(f.Count, 1);
+            Assert.AreEqual(prevTotCount, BeforeDeleteCount-1, "Something wrong with count");
+            Assert.AreEqual(prevTotCount, finalCount, "May not have deleted successfully");
 
 
+        }
+
+
+        [TestMethod]
+        public void CheckUpdateDB()
+        {
+            Implementations imp = new Implementations();
+            
+
+            var m = new Rental();
+            //m.ID = ObjectId.GenerateNewId().ToString();
+            m.NumberOfRooms = 5;
+            m.Description = "very spacious. Off street parking";
+            m.Price = 327;
+            m.Address = new List<string>();
+            m.Address.Add("Brooklyn Street");
+
+            var l = imp.InsertRental(m).Result;
+
+            var f = imp.FindRental(l);
+            var target = f[0];
+            target.Price = 450;
+            imp.UpdateRental(target);
+
+            var newRentalPrice = imp.FindRental(target.Id)[0].Price;
+            Assert.AreEqual(newRentalPrice, 450);
+            //var filter = Builders<Rental>.Filter.Empty;
+
+            //int u = findFluent.ToList().Where(x => x.Id.ToString().Equals(m.Id.ToString())).Count();
+            
         }
         [TestMethod]
         public void EmptyDocument()
@@ -52,6 +127,39 @@ namespace UnitTestProject
             var document = new BsonDocument();
             Console.WriteLine(document.ToJson());
         }
+
+
+
+        [TestMethod]
+        public void CheckUpdatePricing()
+        {
+            Implementations imp = new Implementations();
+
+
+            var m = new Rental();
+            //m.ID = ObjectId.GenerateNewId().ToString();
+            m.NumberOfRooms = 5;
+            m.Description = "very spacious. Off street parking";
+            m.Price = 327;
+            m.Address = new List<string>();
+            m.Address.Add("Brooklyn Street");
+
+            var l = imp.InsertRental(m).Result;
+
+            var f = imp.FindRental(l)[0];
+            AdjustPrice adj = new AdjustPrice();
+            adj.NewPrice = f.Price + 120;
+            adj.Reason = "Busy Season";
+            f.AdjustPriceRental(adj);
+            imp.UpdatePrice(f);
+            Assert.AreEqual(m.Price + 120, imp.FindRental(f.Id)[0].Price);
+            
+            //var filter = Builders<Rental>.Filter.Empty;
+
+            //int u = findFluent.ToList().Where(x => x.Id.ToString().Equals(m.Id.ToString())).Count();
+
+        }
+
 
         [TestMethod]
         public void AddDocument()
