@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MongoDB.Bson;
 using MongoDB.Bson.IO;
@@ -53,11 +54,35 @@ namespace UnitTestProject
         }
 
         [TestMethod]
+        public void TestUploadFile()
+        {
+            Implementations imp = new Implementations();
+            imp.UploadFile(@"F:\Delhi Tour\20131008_121058.jpg");
+        }
+
+
+        [TestMethod]
         public void TestPriceChecker()
         {
             Implementations imp = new Implementations();
-            var m=imp.PriceCheck(400, 460);
-            Console.WriteLine(m.Count);
+            var Ret=imp.PriceCheck(300, 460);
+            Ret.OrderByDescending(x => x.Price).ToList().ForEach(xb => Console.WriteLine(xb.Price));
+            
+            //Console.WriteLine(Ret.First(x => x.Price > 400).Price);
+            //x.ForEach(xb => Console.WriteLine(xb.Id));
+            //List<Rental> lstRental = new List<Rental>();
+            
+            //using (var enumerator = x.GetEnumerator())
+            //{
+                
+            //    while (enumerator.MoveNext())
+            //    {
+            //        var current = enumerator.Current;
+            //        Console.WriteLine(current.Id);
+            //    }
+            //}
+
+
         }
 
 
