@@ -1,0 +1,9 @@
+﻿2016-02-24 17:37:46.587 -05:00 [Information] Protocol: HTTP/1.1  Method: GET  ContentType:   ContentLength:   Scheme: http  Host: localhost:5000  PathBase:   Path: /  QueryString: 
+2016-02-24 17:37:46.997 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-24 17:37:47.044 -05:00 [Information] Executing action method "WebApplication3.Controllers.Web.HomeController.Index" with arguments (null) - ModelState is Valid'
+2016-02-24 17:37:47.045 -05:00 [Information] You are in index
+2016-02-24 17:37:47.179 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-24 17:37:48.291 -05:00 [Information] Executing ViewResult, running view at path "/Views/Home/Index.cshtml".
+2016-02-24 17:37:48.432 -05:00 [Information] User profile is available. Using '"C:\Users\lee\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+2016-02-24 17:37:48.856 -05:00 [Information] Executed action "WebApplication3.Controllers.Web.HomeController.Index" in 0.1937ms
+2016-02-24 17:37:48.860 -05:00 [Information] Request finished in 0.225ms 200 text/html; charset=utf-8

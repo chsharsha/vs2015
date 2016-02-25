@@ -1,0 +1,490 @@
+﻿2016-02-25 01:30:29.351 -05:00 [Information] Protocol: HTTP/1.1  Method: GET  ContentType:   ContentLength:   Scheme: http  Host: localhost:5000  PathBase:   Path: /api/get  QueryString: 
+2016-02-25 01:30:30.093 -05:00 [Information] Request finished in 0.0688ms 404 
+2016-02-25 01:30:41.305 -05:00 [Information] Protocol: HTTP/1.1  Method: GET  ContentType:   ContentLength:   Scheme: http  Host: localhost:5000  PathBase:   Path: /api/trips  QueryString: 
+2016-02-25 01:30:41.514 -05:00 [Information] Executing action method "WebApplication3.Controllers.Api.TripController.Get" with arguments (null) - ModelState is Valid'
+2016-02-25 01:30:41.552 -05:00 [Information] Executing JsonResult, writing value "{ Name = Sri Harsha }".
+2016-02-25 01:30:41.819 -05:00 [Information] Executed action "WebApplication3.Controllers.Api.TripController.Get" in 0.05ms
+2016-02-25 01:30:41.819 -05:00 [Information] Request finished in 0.0516ms 200 application/json; charset=utf-8
+2016-02-25 01:34:48.051 -05:00 [Information] Protocol: HTTP/1.1  Method: GET  ContentType:   ContentLength:   Scheme: http  Host: localhost:5000  PathBase:   Path: /api/trips  QueryString: 
+2016-02-25 01:34:48.556 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-25 01:34:48.601 -05:00 [Information] Executing action method "WebApplication3.Controllers.Api.TripController.Get" with arguments (null) - ModelState is Valid'
+2016-02-25 01:34:48.991 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-25 01:34:49.483 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-25 01:34:49.579 -05:00 [Information] Executing JsonResult, writing value "System.Collections.Generic.List`1[WebApplication3.Models.Trip]".
+2016-02-25 01:34:49.935 -05:00 [Information] Executed action "WebApplication3.Controllers.Api.TripController.Get" in 0.15ms
+2016-02-25 01:34:49.942 -05:00 [Information] Request finished in 0.1859ms 200 application/json; charset=utf-8
+2016-02-25 01:40:00.111 -05:00 [Information] Protocol: HTTP/1.1  Method: GET  ContentType:   ContentLength:   Scheme: http  Host: localhost:5000  PathBase:   Path: /api/trips  QueryString: 
+2016-02-25 01:40:00.567 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-25 01:40:00.610 -05:00 [Information] Executing action method "WebApplication3.Controllers.Api.TripController.Get" with arguments (null) - ModelState is Valid'
+2016-02-25 01:40:00.763 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-25 01:40:00.854 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-25 01:40:00.945 -05:00 [Information] Executing JsonResult, writing value "System.Collections.Generic.List`1[WebApplication3.Models.Trip]".
+2016-02-25 01:40:01.241 -05:00 [Information] Executed action "WebApplication3.Controllers.Api.TripController.Get" in 0.075ms
+2016-02-25 01:40:01.250 -05:00 [Information] Request finished in 0.1094ms 200 application/json; charset=utf-8
+2016-02-25 10:37:43.102 -05:00 [Information] Protocol: HTTP/1.1  Method: POST  ContentType: text/plain;charset=UTF-8  ContentLength: 16  Scheme: http  Host: localhost:5000  PathBase:   Path: /api/trips  QueryString: 
+2016-02-25 10:37:43.597 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-25 10:37:43.694 -05:00 [Information] Executing action method "WebApplication3.Controllers.Api.TripController.Get" with arguments ([""]) - ModelState is Invalid'
+2016-02-25 10:37:43.988 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-25 10:37:44.160 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-25 10:37:44.324 -05:00 [Information] Executing JsonResult, writing value "System.Collections.Generic.List`1[WebApplication3.Models.Trip]".
+2016-02-25 10:37:44.580 -05:00 [Information] Executed action "WebApplication3.Controllers.Api.TripController.Get" in 0.1078ms
+2016-02-25 10:37:44.585 -05:00 [Information] Request finished in 0.1422ms 200 application/json; charset=utf-8
+2016-02-25 10:38:47.393 -05:00 [Information] Protocol: HTTP/1.1  Method: POST  ContentType: text/plain;charset=UTF-8  ContentLength: 16  Scheme: http  Host: localhost:5000  PathBase:   Path: /api/trips  QueryString: 
+2016-02-25 10:38:47.822 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-25 10:38:47.910 -05:00 [Information] Executing action method "WebApplication3.Controllers.Api.TripController.Post" with arguments ([""]) - ModelState is Invalid'
+2016-02-25 10:38:47.935 -05:00 [Information] Executing JsonResult, writing value "True".
+2016-02-25 10:38:48.047 -05:00 [Information] Executed action "WebApplication3.Controllers.Api.TripController.Post" in 0.0297ms
+2016-02-25 10:38:48.053 -05:00 [Information] Request finished in 0.0625ms 200 application/json; charset=utf-8
+2016-02-25 10:39:52.632 -05:00 [Information] Protocol: HTTP/1.1  Method: POST  ContentType: text/plain;charset=UTF-8  ContentLength: 16  Scheme: http  Host: localhost:5000  PathBase:   Path: /api/trips  QueryString: 
+2016-02-25 10:39:53.120 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-25 10:39:53.291 -05:00 [Information] Executing action method "WebApplication3.Controllers.Api.TripController.Post" with arguments ([""]) - ModelState is Invalid'
+2016-02-25 10:39:53.340 -05:00 [Information] Executing JsonResult, writing value "True".
+2016-02-25 10:39:53.453 -05:00 [Information] Executed action "WebApplication3.Controllers.Api.TripController.Post" in 0.0422ms
+2016-02-25 10:39:53.461 -05:00 [Information] Request finished in 0.0797ms 200 application/json; charset=utf-8
+2016-02-25 10:39:56.197 -05:00 [Information] Protocol: HTTP/1.1  Method: POST  ContentType: text/plain;charset=UTF-8  ContentLength: 16  Scheme: http  Host: localhost:5000  PathBase:   Path: /api/trips  QueryString: 
+2016-02-25 10:39:56.229 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-25 10:39:56.229 -05:00 [Information] Executing action method "WebApplication3.Controllers.Api.TripController.Post" with arguments ([""]) - ModelState is Invalid'
+2016-02-25 10:39:56.230 -05:00 [Information] Executing JsonResult, writing value "True".
+2016-02-25 10:39:56.231 -05:00 [Information] Executed action "WebApplication3.Controllers.Api.TripController.Post" in 0.0047ms
+2016-02-25 10:39:56.231 -05:00 [Information] Request finished in 0.0047ms 200 application/json; charset=utf-8
+2016-02-25 10:40:51.964 -05:00 [Information] Protocol: HTTP/1.1  Method: POST  ContentType: text/plain;charset=UTF-8  ContentLength: 16  Scheme: http  Host: localhost:5000  PathBase:   Path: /api/trips  QueryString: 
+2016-02-25 10:40:52.456 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-25 10:40:52.537 -05:00 [Information] Executing action method "WebApplication3.Controllers.Api.TripController.Post" with arguments ([""]) - ModelState is Invalid'
+2016-02-25 10:40:52.564 -05:00 [Information] Executing JsonResult, writing value "False".
+2016-02-25 10:40:52.683 -05:00 [Information] Executed action "WebApplication3.Controllers.Api.TripController.Post" in 0.0312ms
+2016-02-25 10:40:52.693 -05:00 [Information] Request finished in 0.0703ms 200 application/json; charset=utf-8
+2016-02-25 10:41:02.472 -05:00 [Information] Protocol: HTTP/1.1  Method: POST  ContentType: text/plain;charset=UTF-8  ContentLength: 17  Scheme: http  Host: localhost:5000  PathBase:   Path: /api/trips  QueryString: 
+2016-02-25 10:41:02.483 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-25 10:41:02.484 -05:00 [Information] Executing action method "WebApplication3.Controllers.Api.TripController.Post" with arguments ([""]) - ModelState is Invalid'
+2016-02-25 10:41:02.484 -05:00 [Information] Executing JsonResult, writing value "False".
+2016-02-25 10:41:02.485 -05:00 [Information] Executed action "WebApplication3.Controllers.Api.TripController.Post" in 0.0016ms
+2016-02-25 10:41:02.485 -05:00 [Information] Request finished in 0.0016ms 200 application/json; charset=utf-8
+2016-02-25 10:41:04.941 -05:00 [Information] Protocol: HTTP/1.1  Method: POST  ContentType: text/plain;charset=UTF-8  ContentLength: 17  Scheme: http  Host: localhost:5000  PathBase:   Path: /api/trips  QueryString: 
+2016-02-25 10:41:04.975 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-25 10:41:04.976 -05:00 [Information] Executing action method "WebApplication3.Controllers.Api.TripController.Post" with arguments ([""]) - ModelState is Invalid'
+2016-02-25 10:41:04.976 -05:00 [Information] Executing JsonResult, writing value "False".
+2016-02-25 10:41:04.976 -05:00 [Information] Executed action "WebApplication3.Controllers.Api.TripController.Post" in 0.0031ms
+2016-02-25 10:41:04.976 -05:00 [Information] Request finished in 0.0031ms 200 application/json; charset=utf-8
+2016-02-25 10:41:05.558 -05:00 [Information] Protocol: HTTP/1.1  Method: POST  ContentType: text/plain;charset=UTF-8  ContentLength: 17  Scheme: http  Host: localhost:5000  PathBase:   Path: /api/trips  QueryString: 
+2016-02-25 10:41:05.565 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-25 10:41:05.566 -05:00 [Information] Executing action method "WebApplication3.Controllers.Api.TripController.Post" with arguments ([""]) - ModelState is Invalid'
+2016-02-25 10:41:05.566 -05:00 [Information] Executing JsonResult, writing value "False".
+2016-02-25 10:41:05.566 -05:00 [Information] Executed action "WebApplication3.Controllers.Api.TripController.Post" in 0.0016ms
+2016-02-25 10:41:05.566 -05:00 [Information] Request finished in 0.0016ms 200 application/json; charset=utf-8
+2016-02-25 10:41:06.045 -05:00 [Information] Protocol: HTTP/1.1  Method: POST  ContentType: text/plain;charset=UTF-8  ContentLength: 17  Scheme: http  Host: localhost:5000  PathBase:   Path: /api/trips  QueryString: 
+2016-02-25 10:41:06.072 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-25 10:41:06.073 -05:00 [Information] Executing action method "WebApplication3.Controllers.Api.TripController.Post" with arguments ([""]) - ModelState is Invalid'
+2016-02-25 10:41:06.073 -05:00 [Information] Executing JsonResult, writing value "False".
+2016-02-25 10:41:06.073 -05:00 [Information] Executed action "WebApplication3.Controllers.Api.TripController.Post" in 0.0016ms
+2016-02-25 10:41:06.073 -05:00 [Information] Request finished in 0.0016ms 200 application/json; charset=utf-8
+2016-02-25 10:41:06.395 -05:00 [Information] Protocol: HTTP/1.1  Method: POST  ContentType: text/plain;charset=UTF-8  ContentLength: 17  Scheme: http  Host: localhost:5000  PathBase:   Path: /api/trips  QueryString: 
+2016-02-25 10:41:06.399 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-25 10:41:06.399 -05:00 [Information] Executing action method "WebApplication3.Controllers.Api.TripController.Post" with arguments ([""]) - ModelState is Invalid'
+2016-02-25 10:41:06.399 -05:00 [Information] Executing JsonResult, writing value "False".
+2016-02-25 10:41:06.399 -05:00 [Information] Executed action "WebApplication3.Controllers.Api.TripController.Post" in 0ms
+2016-02-25 10:41:06.399 -05:00 [Information] Request finished in 0ms 200 application/json; charset=utf-8
+2016-02-25 10:41:06.594 -05:00 [Information] Protocol: HTTP/1.1  Method: POST  ContentType: text/plain;charset=UTF-8  ContentLength: 17  Scheme: http  Host: localhost:5000  PathBase:   Path: /api/trips  QueryString: 
+2016-02-25 10:41:06.619 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-25 10:41:06.619 -05:00 [Information] Executing action method "WebApplication3.Controllers.Api.TripController.Post" with arguments ([""]) - ModelState is Invalid'
+2016-02-25 10:41:06.619 -05:00 [Information] Executing JsonResult, writing value "False".
+2016-02-25 10:41:06.619 -05:00 [Information] Executed action "WebApplication3.Controllers.Api.TripController.Post" in 0.0016ms
+2016-02-25 10:41:06.619 -05:00 [Information] Request finished in 0.0016ms 200 application/json; charset=utf-8
+2016-02-25 10:41:06.814 -05:00 [Information] Protocol: HTTP/1.1  Method: POST  ContentType: text/plain;charset=UTF-8  ContentLength: 17  Scheme: http  Host: localhost:5000  PathBase:   Path: /api/trips  QueryString: 
+2016-02-25 10:41:06.821 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-25 10:41:06.821 -05:00 [Information] Executing action method "WebApplication3.Controllers.Api.TripController.Post" with arguments ([""]) - ModelState is Invalid'
+2016-02-25 10:41:06.821 -05:00 [Information] Executing JsonResult, writing value "False".
+2016-02-25 10:41:06.821 -05:00 [Information] Executed action "WebApplication3.Controllers.Api.TripController.Post" in 0ms
+2016-02-25 10:41:06.821 -05:00 [Information] Request finished in 0ms 200 application/json; charset=utf-8
+2016-02-25 10:42:05.092 -05:00 [Information] Protocol: HTTP/1.1  Method: POST  ContentType: text/plain;charset=UTF-8  ContentLength: 17  Scheme: http  Host: localhost:5000  PathBase:   Path: /api/trips  QueryString: 
+2016-02-25 10:42:05.566 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-25 10:42:05.650 -05:00 [Information] Executing action method "WebApplication3.Controllers.Api.TripController.Post" with arguments ([""]) - ModelState is Invalid'
+2016-02-25 10:42:05.731 -05:00 [Information] Request finished in 0.0625ms 500
+2016-02-25 10:42:05.732 -05:00 [Error] An unhandled exception was thrown by the application.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at WebApplication3.Controllers.Api.TripController.Post(TripViewModel tvm) in C:\Users\lee\Documents\Visual Studio 2015\Projects\WebApplication3\src\WebApplication3\Controllers\Api\TripController.cs:line 36
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNet.Mvc.Controllers.ControllerActionExecutor.ExecuteAsync(MethodInfo actionMethodInfo, Object instance, Object[] orderedActionArguments)
+   at Microsoft.AspNet.Mvc.Controllers.ControllerActionInvoker.<InvokeActionAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at Microsoft.AspNet.Mvc.Controllers.FilterActionInvoker.<InvokeActionFilterAsync>d__53.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNet.Mvc.Controllers.FilterActionInvoker.<InvokeAsync>d__44.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Mvc.Infrastructure.MvcRouteHandler.<RouteAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Mvc.Routing.InnerAttributeRoute.<RouteAsync>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Routing.RouteCollection.<RouteAsync>d__9.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Builder.RouterMiddleware.<Invoke>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Hosting.Internal.RequestServicesContainerMiddleware.<Invoke>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Hosting.Internal.HostingEngine.<>c__DisplayClass32_0.<<Start>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Server.Kestrel.Http.Frame.<RequestProcessingAsync>d__79.MoveNext()
+2016-02-25 10:43:22.594 -05:00 [Information] Protocol: HTTP/1.1  Method: POST  ContentType: text/plain;charset=UTF-8  ContentLength: 17  Scheme: http  Host: localhost:5000  PathBase:   Path: /api/trips  QueryString: 
+2016-02-25 10:43:22.605 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-25 10:43:22.606 -05:00 [Information] Executing action method "WebApplication3.Controllers.Api.TripController.Post" with arguments ([""]) - ModelState is Invalid'
+2016-02-25 10:43:22.607 -05:00 [Information] Request finished in 0.0016ms 500
+2016-02-25 10:43:22.607 -05:00 [Error] An unhandled exception was thrown by the application.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at WebApplication3.Controllers.Api.TripController.Post(TripViewModel tvm) in C:\Users\lee\Documents\Visual Studio 2015\Projects\WebApplication3\src\WebApplication3\Controllers\Api\TripController.cs:line 36
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNet.Mvc.Controllers.ControllerActionExecutor.ExecuteAsync(MethodInfo actionMethodInfo, Object instance, Object[] orderedActionArguments)
+   at Microsoft.AspNet.Mvc.Controllers.ControllerActionInvoker.<InvokeActionAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at Microsoft.AspNet.Mvc.Controllers.FilterActionInvoker.<InvokeActionFilterAsync>d__53.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNet.Mvc.Controllers.FilterActionInvoker.<InvokeAsync>d__44.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Mvc.Infrastructure.MvcRouteHandler.<RouteAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Mvc.Routing.InnerAttributeRoute.<RouteAsync>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Routing.RouteCollection.<RouteAsync>d__9.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Builder.RouterMiddleware.<Invoke>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Hosting.Internal.RequestServicesContainerMiddleware.<Invoke>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Hosting.Internal.HostingEngine.<>c__DisplayClass32_0.<<Start>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Server.Kestrel.Http.Frame.<RequestProcessingAsync>d__79.MoveNext()
+2016-02-25 10:43:25.327 -05:00 [Information] Protocol: HTTP/1.1  Method: POST  ContentType: text/plain;charset=UTF-8  ContentLength: 17  Scheme: http  Host: localhost:5000  PathBase:   Path: /api/trips  QueryString: 
+2016-02-25 10:43:25.340 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-25 10:43:25.340 -05:00 [Information] Executing action method "WebApplication3.Controllers.Api.TripController.Post" with arguments ([""]) - ModelState is Invalid'
+2016-02-25 10:43:25.341 -05:00 [Information] Request finished in 0.0015ms 500
+2016-02-25 10:43:25.341 -05:00 [Error] An unhandled exception was thrown by the application.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at WebApplication3.Controllers.Api.TripController.Post(TripViewModel tvm) in C:\Users\lee\Documents\Visual Studio 2015\Projects\WebApplication3\src\WebApplication3\Controllers\Api\TripController.cs:line 36
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNet.Mvc.Controllers.ControllerActionExecutor.ExecuteAsync(MethodInfo actionMethodInfo, Object instance, Object[] orderedActionArguments)
+   at Microsoft.AspNet.Mvc.Controllers.ControllerActionInvoker.<InvokeActionAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at Microsoft.AspNet.Mvc.Controllers.FilterActionInvoker.<InvokeActionFilterAsync>d__53.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNet.Mvc.Controllers.FilterActionInvoker.<InvokeAsync>d__44.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Mvc.Infrastructure.MvcRouteHandler.<RouteAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Mvc.Routing.InnerAttributeRoute.<RouteAsync>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Routing.RouteCollection.<RouteAsync>d__9.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Builder.RouterMiddleware.<Invoke>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Hosting.Internal.RequestServicesContainerMiddleware.<Invoke>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Hosting.Internal.HostingEngine.<>c__DisplayClass32_0.<<Start>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Server.Kestrel.Http.Frame.<RequestProcessingAsync>d__79.MoveNext()
+2016-02-25 10:43:26.119 -05:00 [Information] Protocol: HTTP/1.1  Method: POST  ContentType: text/plain;charset=UTF-8  ContentLength: 17  Scheme: http  Host: localhost:5000  PathBase:   Path: /api/trips  QueryString: 
+2016-02-25 10:43:26.142 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-25 10:43:26.142 -05:00 [Information] Executing action method "WebApplication3.Controllers.Api.TripController.Post" with arguments ([""]) - ModelState is Invalid'
+2016-02-25 10:43:26.143 -05:00 [Information] Request finished in 0.0031ms 500
+2016-02-25 10:43:26.143 -05:00 [Error] An unhandled exception was thrown by the application.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at WebApplication3.Controllers.Api.TripController.Post(TripViewModel tvm) in C:\Users\lee\Documents\Visual Studio 2015\Projects\WebApplication3\src\WebApplication3\Controllers\Api\TripController.cs:line 36
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNet.Mvc.Controllers.ControllerActionExecutor.ExecuteAsync(MethodInfo actionMethodInfo, Object instance, Object[] orderedActionArguments)
+   at Microsoft.AspNet.Mvc.Controllers.ControllerActionInvoker.<InvokeActionAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at Microsoft.AspNet.Mvc.Controllers.FilterActionInvoker.<InvokeActionFilterAsync>d__53.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNet.Mvc.Controllers.FilterActionInvoker.<InvokeAsync>d__44.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Mvc.Infrastructure.MvcRouteHandler.<RouteAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Mvc.Routing.InnerAttributeRoute.<RouteAsync>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Routing.RouteCollection.<RouteAsync>d__9.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Builder.RouterMiddleware.<Invoke>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Hosting.Internal.RequestServicesContainerMiddleware.<Invoke>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Hosting.Internal.HostingEngine.<>c__DisplayClass32_0.<<Start>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Server.Kestrel.Http.Frame.<RequestProcessingAsync>d__79.MoveNext()
+2016-02-25 10:43:35.815 -05:00 [Information] Protocol: HTTP/1.1  Method: POST  ContentType: text/plain;charset=UTF-8  ContentLength: 16  Scheme: http  Host: localhost:5000  PathBase:   Path: /api/trips  QueryString: 
+2016-02-25 10:43:35.823 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-25 10:43:35.823 -05:00 [Information] Executing action method "WebApplication3.Controllers.Api.TripController.Post" with arguments ([""]) - ModelState is Invalid'
+2016-02-25 10:43:35.824 -05:00 [Information] Request finished in 0ms 500
+2016-02-25 10:43:35.824 -05:00 [Error] An unhandled exception was thrown by the application.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at WebApplication3.Controllers.Api.TripController.Post(TripViewModel tvm) in C:\Users\lee\Documents\Visual Studio 2015\Projects\WebApplication3\src\WebApplication3\Controllers\Api\TripController.cs:line 36
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNet.Mvc.Controllers.ControllerActionExecutor.ExecuteAsync(MethodInfo actionMethodInfo, Object instance, Object[] orderedActionArguments)
+   at Microsoft.AspNet.Mvc.Controllers.ControllerActionInvoker.<InvokeActionAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at Microsoft.AspNet.Mvc.Controllers.FilterActionInvoker.<InvokeActionFilterAsync>d__53.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNet.Mvc.Controllers.FilterActionInvoker.<InvokeAsync>d__44.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Mvc.Infrastructure.MvcRouteHandler.<RouteAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Mvc.Routing.InnerAttributeRoute.<RouteAsync>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Routing.RouteCollection.<RouteAsync>d__9.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Builder.RouterMiddleware.<Invoke>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Hosting.Internal.RequestServicesContainerMiddleware.<Invoke>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Hosting.Internal.HostingEngine.<>c__DisplayClass32_0.<<Start>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Server.Kestrel.Http.Frame.<RequestProcessingAsync>d__79.MoveNext()
+2016-02-25 10:43:57.819 -05:00 [Information] Protocol: HTTP/1.1  Method: POST  ContentType: text/plain;charset=UTF-8  ContentLength: 16  Scheme: http  Host: localhost:5000  PathBase:   Path: /api/trips  QueryString: 
+2016-02-25 10:43:58.651 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-25 10:43:58.854 -05:00 [Information] Executing action method "WebApplication3.Controllers.Api.TripController.Post" with arguments ([""]) - ModelState is Invalid'
+2016-02-25 10:44:24.941 -05:00 [Information] Request finished in 2.7078ms 500
+2016-02-25 10:44:24.942 -05:00 [Error] An unhandled exception was thrown by the application.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at WebApplication3.Controllers.Api.TripController.Post(TripViewModel tvm) in C:\Users\lee\Documents\Visual Studio 2015\Projects\WebApplication3\src\WebApplication3\Controllers\Api\TripController.cs:line 36
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNet.Mvc.Controllers.ControllerActionExecutor.ExecuteAsync(MethodInfo actionMethodInfo, Object instance, Object[] orderedActionArguments)
+   at Microsoft.AspNet.Mvc.Controllers.ControllerActionInvoker.<InvokeActionAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at Microsoft.AspNet.Mvc.Controllers.FilterActionInvoker.<InvokeActionFilterAsync>d__53.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNet.Mvc.Controllers.FilterActionInvoker.<InvokeAsync>d__44.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Mvc.Infrastructure.MvcRouteHandler.<RouteAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Mvc.Routing.InnerAttributeRoute.<RouteAsync>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Routing.RouteCollection.<RouteAsync>d__9.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Builder.RouterMiddleware.<Invoke>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Hosting.Internal.RequestServicesContainerMiddleware.<Invoke>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Hosting.Internal.HostingEngine.<>c__DisplayClass32_0.<<Start>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Server.Kestrel.Http.Frame.<RequestProcessingAsync>d__79.MoveNext()
+2016-02-25 10:44:44.291 -05:00 [Information] Protocol: HTTP/1.1  Method: POST  ContentType: text/plain;charset=UTF-8  ContentLength: 17  Scheme: http  Host: localhost:5000  PathBase:   Path: /api/trips  QueryString: 
+2016-02-25 10:44:44.425 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-25 10:44:44.426 -05:00 [Information] Executing action method "WebApplication3.Controllers.Api.TripController.Post" with arguments ([""]) - ModelState is Invalid'
+2016-02-25 10:46:43.036 -05:00 [Information] Request finished in 11.875ms 500
+2016-02-25 10:46:43.036 -05:00 [Error] An unhandled exception was thrown by the application.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at WebApplication3.Controllers.Api.TripController.Post(TripViewModel tvm) in C:\Users\lee\Documents\Visual Studio 2015\Projects\WebApplication3\src\WebApplication3\Controllers\Api\TripController.cs:line 36
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNet.Mvc.Controllers.ControllerActionExecutor.ExecuteAsync(MethodInfo actionMethodInfo, Object instance, Object[] orderedActionArguments)
+   at Microsoft.AspNet.Mvc.Controllers.ControllerActionInvoker.<InvokeActionAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at Microsoft.AspNet.Mvc.Controllers.FilterActionInvoker.<InvokeActionFilterAsync>d__53.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNet.Mvc.Controllers.FilterActionInvoker.<InvokeAsync>d__44.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Mvc.Infrastructure.MvcRouteHandler.<RouteAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Mvc.Routing.InnerAttributeRoute.<RouteAsync>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Routing.RouteCollection.<RouteAsync>d__9.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Builder.RouterMiddleware.<Invoke>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Hosting.Internal.RequestServicesContainerMiddleware.<Invoke>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Hosting.Internal.HostingEngine.<>c__DisplayClass32_0.<<Start>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Server.Kestrel.Http.Frame.<RequestProcessingAsync>d__79.MoveNext()
+2016-02-25 10:46:48.232 -05:00 [Information] Protocol: HTTP/1.1  Method: POST  ContentType: text/plain;charset=UTF-8  ContentLength: 17  Scheme: http  Host: localhost:5000  PathBase:   Path: /api/trips  QueryString: 
+2016-02-25 10:46:48.287 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-25 10:46:48.287 -05:00 [Information] Executing action method "WebApplication3.Controllers.Api.TripController.Post" with arguments ([""]) - ModelState is Invalid'
+2016-02-25 10:53:50.148 -05:00 [Information] Protocol: HTTP/1.1  Method: POST  ContentType: text/plain;charset=UTF-8  ContentLength: 28  Scheme: http  Host: localhost:5000  PathBase:   Path: /api/trips  QueryString: 
+2016-02-25 10:53:50.721 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-25 10:53:50.829 -05:00 [Information] Executing action method "WebApplication3.Controllers.Api.TripController.Post" with arguments ([""]) - ModelState is Invalid'
+2016-02-25 10:54:32.082 -05:00 [Information] Protocol: HTTP/1.1  Method: POST  ContentType: text/plain;charset=UTF-8  ContentLength: 28  Scheme: http  Host: localhost:5000  PathBase:   Path: /api/trips  QueryString: 
+2016-02-25 10:54:32.115 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-25 10:54:32.116 -05:00 [Information] Executing action method "WebApplication3.Controllers.Api.TripController.Post" with arguments ([""]) - ModelState is Invalid'
+2016-02-25 10:54:33.035 -05:00 [Information] Executing JsonResult, writing value "True".
+2016-02-25 10:54:33.041 -05:00 [Information] Executing JsonResult, writing value "True".
+2016-02-25 10:54:33.305 -05:00 [Information] Executed action "WebApplication3.Controllers.Api.TripController.Post" in 4.2781ms
+2016-02-25 10:54:33.311 -05:00 [Information] Request finished in 4.3141ms 200 application/json; charset=utf-8
+2016-02-25 10:54:33.317 -05:00 [Information] Executed action "WebApplication3.Controllers.Api.TripController.Post" in 0.1234ms
+2016-02-25 10:54:33.317 -05:00 [Information] Request finished in 0.1234ms 200 application/json; charset=utf-8
+2016-02-25 10:54:57.547 -05:00 [Information] Protocol: HTTP/1.1  Method: POST  ContentType: text/plain;charset=UTF-8  ContentLength: 28  Scheme: http  Host: localhost:5000  PathBase:   Path: /api/trips  QueryString: 
+2016-02-25 10:54:57.600 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-25 10:54:57.601 -05:00 [Information] Executing action method "WebApplication3.Controllers.Api.TripController.Post" with arguments ([""]) - ModelState is Invalid'
+2016-02-25 10:55:01.976 -05:00 [Information] Executing JsonResult, writing value "True".
+2016-02-25 10:55:01.978 -05:00 [Information] Executed action "WebApplication3.Controllers.Api.TripController.Post" in 0.4422ms
+2016-02-25 10:55:01.978 -05:00 [Information] Request finished in 0.4422ms 200 application/json; charset=utf-8
+2016-02-25 10:55:26.302 -05:00 [Information] Protocol: HTTP/1.1  Method: POST  ContentType: text/plain;charset=UTF-8  ContentLength: 27  Scheme: http  Host: localhost:5000  PathBase:   Path: /api/trips  QueryString: 
+2016-02-25 10:55:26.346 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-25 10:55:26.347 -05:00 [Information] Executing action method "WebApplication3.Controllers.Api.TripController.Post" with arguments ([""]) - ModelState is Invalid'
+2016-02-25 10:56:09.260 -05:00 [Information] Executing JsonResult, writing value "True".
+2016-02-25 10:56:09.261 -05:00 [Information] Executed action "WebApplication3.Controllers.Api.TripController.Post" in 4.2954ms
+2016-02-25 10:56:09.261 -05:00 [Information] Request finished in 4.2954ms 200 application/json; charset=utf-8
+2016-02-25 10:56:53.266 -05:00 [Information] Protocol: HTTP/1.1  Method: POST  ContentType: text/plain;charset=UTF-8  ContentLength: 27  Scheme: http  Host: localhost:5000  PathBase:   Path: /api/trips  QueryString: 
+2016-02-25 10:56:53.311 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-25 10:56:53.312 -05:00 [Information] Executing action method "WebApplication3.Controllers.Api.TripController.Post" with arguments ([""]) - ModelState is Invalid'
+2016-02-25 10:58:48.124 -05:00 [Information] Protocol: HTTP/1.1  Method: POST  ContentType: application/json  ContentLength: 27  Scheme: http  Host: localhost:5000  PathBase:   Path: /api/trips  QueryString: 
+2016-02-25 10:58:48.677 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-25 10:58:49.059 -05:00 [Information] Executing action method "WebApplication3.Controllers.Api.TripController.Post" with arguments (["WebApplication3.Models.Trip"]) - ModelState is Valid'
+2016-02-25 11:04:22.713 -05:00 [Information] Protocol: HTTP/1.1  Method: POST  ContentType: application/json  ContentLength: 27  Scheme: http  Host: localhost:5000  PathBase:   Path: /api/trips  QueryString: 
+2016-02-25 11:04:23.096 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-25 11:04:23.332 -05:00 [Information] Executing action method "WebApplication3.Controllers.Api.TripController.Post" with arguments (["WebApplication3.ViewModels.TripViewModel"]) - ModelState is Valid'
+2016-02-25 11:04:23.358 -05:00 [Information] Executing JsonResult, writing value "True".
+2016-02-25 11:04:23.403 -05:00 [Information] Executed action "WebApplication3.Controllers.Api.TripController.Post" in 0.0375ms
+2016-02-25 11:04:23.410 -05:00 [Information] Request finished in 0.0672ms 200 application/json; charset=utf-8
+2016-02-25 11:04:29.752 -05:00 [Information] Protocol: HTTP/1.1  Method: POST  ContentType: application/json  ContentLength: 30  Scheme: http  Host: localhost:5000  PathBase:   Path: /api/trips  QueryString: 
+2016-02-25 11:04:29.781 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-25 11:04:29.839 -05:00 [Information] Executing action method "WebApplication3.Controllers.Api.TripController.Post" with arguments (["WebApplication3.ViewModels.TripViewModel"]) - ModelState is Unvalidated'
+2016-02-25 11:04:29.839 -05:00 [Information] Executing JsonResult, writing value "False".
+2016-02-25 11:04:29.840 -05:00 [Information] Executed action "WebApplication3.Controllers.Api.TripController.Post" in 0.0093ms
+2016-02-25 11:04:29.840 -05:00 [Information] Request finished in 0.0093ms 200 application/json; charset=utf-8
+2016-02-25 11:04:40.935 -05:00 [Information] Protocol: HTTP/1.1  Method: POST  ContentType: application/json  ContentLength: 27  Scheme: http  Host: localhost:5000  PathBase:   Path: /api/trips  QueryString: 
+2016-02-25 11:04:40.939 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-25 11:04:40.939 -05:00 [Information] Executing action method "WebApplication3.Controllers.Api.TripController.Post" with arguments (["WebApplication3.ViewModels.TripViewModel"]) - ModelState is Valid'
+2016-02-25 11:04:40.939 -05:00 [Information] Executing JsonResult, writing value "True".
+2016-02-25 11:04:40.939 -05:00 [Information] Executed action "WebApplication3.Controllers.Api.TripController.Post" in 0ms
+2016-02-25 11:04:40.939 -05:00 [Information] Request finished in 0ms 200 application/json; charset=utf-8
+2016-02-25 11:09:05.676 -05:00 [Information] Protocol: HTTP/1.1  Method: POST  ContentType: application/json  ContentLength: 27  Scheme: http  Host: localhost:5000  PathBase:   Path: /api/trips  QueryString: 
+2016-02-25 11:09:06.124 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-25 11:09:06.414 -05:00 [Information] Executing action method "WebApplication3.Controllers.Api.TripController.Post" with arguments (["WebApplication3.ViewModels.TripViewModel"]) - ModelState is Valid'
+2016-02-25 11:09:06.443 -05:00 [Information] Executing JsonResult, writing value "True".
+2016-02-25 11:09:06.499 -05:00 [Information] Executed action "WebApplication3.Controllers.Api.TripController.Post" in 0.0469ms
+2016-02-25 11:09:06.509 -05:00 [Information] Request finished in 0.0797ms 201 application/json; charset=utf-8
+2016-02-25 11:09:13.733 -05:00 [Information] Protocol: HTTP/1.1  Method: POST  ContentType: application/json  ContentLength: 28  Scheme: http  Host: localhost:5000  PathBase:   Path: /api/trips  QueryString: 
+2016-02-25 11:09:13.768 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-25 11:09:13.772 -05:00 [Information] Executing action method "WebApplication3.Controllers.Api.TripController.Post" with arguments (["WebApplication3.ViewModels.TripViewModel"]) - ModelState is Unvalidated'
+2016-02-25 11:09:13.772 -05:00 [Information] Executing JsonResult, writing value "Microsoft.AspNet.Mvc.ModelBinding.ModelStateDictionary".
+2016-02-25 11:09:13.835 -05:00 [Information] Executed action "WebApplication3.Controllers.Api.TripController.Post" in 0.0094ms
+2016-02-25 11:09:13.835 -05:00 [Information] Request finished in 0.0094ms 400 application/json; charset=utf-8
+2016-02-25 14:33:28.201 -05:00 [Information] Protocol: HTTP/1.1  Method: POST  ContentType: application/json  ContentLength: 28  Scheme: http  Host: localhost:5000  PathBase:   Path: /api/trips  QueryString: 
+2016-02-25 14:33:29.396 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-25 14:33:29.823 -05:00 [Information] Executing action method "WebApplication3.Controllers.Api.TripController.Post" with arguments (["WebApplication3.ViewModels.TripViewModel"]) - ModelState is Unvalidated'
+2016-02-25 14:33:29.868 -05:00 [Information] Executing JsonResult, writing value "Microsoft.AspNet.Mvc.ModelBinding.ModelStateDictionary".
+2016-02-25 14:33:30.065 -05:00 [Information] Executed action "WebApplication3.Controllers.Api.TripController.Post" in 0.0921ms
+2016-02-25 14:33:30.078 -05:00 [Information] Request finished in 0.1828ms 400 application/json; charset=utf-8
+2016-02-25 14:33:42.522 -05:00 [Information] Protocol: HTTP/1.1  Method: POST  ContentType: application/json  ContentLength: 27  Scheme: http  Host: localhost:5000  PathBase:   Path: /api/trips  QueryString: 
+2016-02-25 14:33:42.666 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-25 14:33:42.675 -05:00 [Information] Executing action method "WebApplication3.Controllers.Api.TripController.Post" with arguments (["WebApplication3.ViewModels.TripViewModel"]) - ModelState is Valid'
+2016-02-25 14:40:13.911 -05:00 [Information] Protocol: HTTP/1.1  Method: POST  ContentType: application/json  ContentLength: 28  Scheme: http  Host: localhost:5000  PathBase:   Path: /api/trips  QueryString: 
+2016-02-25 14:40:14.363 -05:00 [Information] Microsoft.Data.Entity.Storage.DbCommandLogData
+2016-02-25 14:40:14.787 -05:00 [Information] Executing action method "WebApplication3.Controllers.Api.TripController.Post" with arguments (["WebApplication3.ViewModels.TripViewModel"]) - ModelState is Unvalidated'
+2016-02-25 14:40:14.814 -05:00 [Information] Executing JsonResult, writing value "Microsoft.AspNet.Mvc.ModelBinding.ModelStateDictionary".
+2016-02-25 14:40:14.936 -05:00 [Information] Executed action "WebApplication3.Controllers.Api.TripController.Post" in 0.0656ms
+2016-02-25 14:40:14.944 -05:00 [Information] Request finished in 0.1ms 400 application/json; charset=utf-8

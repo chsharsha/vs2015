@@ -5,23 +5,62 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Http;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.PlatformAbstractions;
+using WebApplication3.Models;
+using WebApplication3.Services;
+using Serilog;
+using System.IO;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json.Serialization;
+using WebApplication3.ViewModels;
+using AutoMapper;
 
 namespace WebApplication3
 {
     public class Startup
     {
+        public static IConfigurationRoot Configuration;
+        public Startup(IApplicationEnvironment appEnv)
+        {
+            Log.Logger = new LoggerConfiguration().MinimumLevel.Information().WriteTo.RollingFile(Path.Combine(appEnv.ApplicationBasePath, "log-{Date}.txt")).CreateLogger();
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(appEnv.ApplicationBasePath)
+                .AddJsonFile("config.json")
+                .AddEnvironmentVariables();
+            Configuration = builder.Build();
+        }
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddMvc()
+                .AddJsonOptions(opt =>
+                {
+                    opt.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                });
+            services.AddScoped<IMailService, MailService>();
+            services.AddEntityFramework()
+                .AddSqlServer()
+                .AddDbContext<TheWorldContext>();
+
+            services.AddTransient<TheWorldContextSeedData>();
+            services.AddTransient<TestoSeeder>();
+            services.AddScoped<ITheWorldRepository, TheWorldRepository>();
+                
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app)
+        public void Configure(IApplicationBuilder app,TheWorldContextSeedData seeder,TestoSeeder testSeeder,ILoggerFactory loggerfactory)
         {
             app.UseStaticFiles();
+
+            Mapper.Initialize(config =>
+            {
+                config.CreateMap<Trip, TripViewModel>().ReverseMap();
+            });
+            
             app.UseMvc(config => {
             config.MapRoute(
                 name: "default",
@@ -30,6 +69,10 @@ namespace WebApplication3
 
                     );
             });
+
+            seeder.EnsureSeedData();
+            testSeeder.EnsureTestoSeed();
+            loggerfactory.AddSerilog();
         }
 
         // Entry point for the application.
