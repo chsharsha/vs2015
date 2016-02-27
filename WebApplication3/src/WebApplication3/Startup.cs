@@ -16,6 +16,9 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Serialization;
 using WebApplication3.ViewModels;
 using AutoMapper;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Authentication.Cookies;
+using System.Net;
 
 namespace WebApplication3
 {
@@ -24,7 +27,7 @@ namespace WebApplication3
         public static IConfigurationRoot Configuration;
         public Startup(IApplicationEnvironment appEnv)
         {
-            Log.Logger = new LoggerConfiguration().MinimumLevel.Information().WriteTo.RollingFile(Path.Combine(appEnv.ApplicationBasePath, "log-{Date}.txt")).CreateLogger();
+            Log.Logger = new LoggerConfiguration().MinimumLevel.Warning().WriteTo.RollingFile(Path.Combine(appEnv.ApplicationBasePath, "log-{Date}.txt")).CreateLogger();
             var builder = new ConfigurationBuilder()
                 .SetBasePath(appEnv.ApplicationBasePath)
                 .AddJsonFile("config.json")
@@ -40,6 +43,33 @@ namespace WebApplication3
                 {
                     opt.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
                 });
+
+            services.AddIdentity<TheWorldUser, IdentityRole>(config =>
+            {
+
+                config.User.RequireUniqueEmail = true;
+                config.Password.RequiredLength = 8;
+                config.Cookies.ApplicationCookie.LoginPath = "/Auth/Login";
+                config.Cookies.ApplicationCookie.Events = new CookieAuthenticationEvents()
+                {
+
+                    OnRedirectToLogin = ctx =>
+                    {
+                        if (ctx.Request.Path.StartsWithSegments("/api") && ctx.Response.StatusCode == (int)HttpStatusCode.OK)
+                        {
+                            ctx.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+                        }
+                        else
+                        { 
+                        ctx.Response.Redirect(ctx.RedirectUri);
+                        }
+                        return Task.FromResult(0);
+                    }
+                };
+
+            }).AddEntityFrameworkStores<TheWorldContext>();
+
+           
             services.AddScoped<IMailService, MailService>();
             services.AddEntityFramework()
                 .AddSqlServer()
@@ -48,29 +78,33 @@ namespace WebApplication3
             services.AddTransient<TheWorldContextSeedData>();
             services.AddTransient<TestoSeeder>();
             services.AddScoped<ITheWorldRepository, TheWorldRepository>();
-                
+            services.AddScoped<CoordService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app,TheWorldContextSeedData seeder,TestoSeeder testSeeder,ILoggerFactory loggerfactory)
+        public async void Configure(IApplicationBuilder app, TheWorldContextSeedData seeder, TestoSeeder testSeeder, ILoggerFactory loggerfactory)
         {
             app.UseStaticFiles();
-
+            app.UseIdentity();
             Mapper.Initialize(config =>
             {
                 config.CreateMap<Trip, TripViewModel>().ReverseMap();
-            });
-            
-            app.UseMvc(config => {
-            config.MapRoute(
-                name: "default",
-                template:"{controller}/{action}/{id?}",
-                defaults: new { controller = "Home", action="Index" }
-
-                    );
+                config.CreateMap<Stop, StopViewModel>().ReverseMap();
+                
             });
 
-            seeder.EnsureSeedData();
+            app.UseMvc(config =>
+            {
+                config.MapRoute(
+                    name: "default",
+                    template: "{controller}/{action}/{id?}",
+                    defaults: new { controller = "Home", action = "Index" }
+
+                        );
+            });
+
+            await seeder.EnsureSeedDataAsync();
             testSeeder.EnsureTestoSeed();
             loggerfactory.AddSerilog();
         }

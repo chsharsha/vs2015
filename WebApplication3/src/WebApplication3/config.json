@@ -1,4 +1,8 @@
 ﻿{
+
+  "AppSettings": {
+    "BingKey": "HAHAHANICETRY"
+  },
   "Data": {
     "WorldContextConnection": "Data Source=(localdb)\\ProjectsV12;Initial Catalog=TheWorld;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"
   }

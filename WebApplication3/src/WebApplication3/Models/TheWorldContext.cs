@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Data.Entity;
 
 namespace WebApplication3.Models
 {
-    public class TheWorldContext : DbContext
+    public class TheWorldContext : IdentityDbContext<TheWorldUser>
     {
         public TheWorldContext()
         {

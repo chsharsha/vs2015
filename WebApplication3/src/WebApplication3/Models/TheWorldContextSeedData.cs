@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,13 +9,26 @@ namespace WebApplication3.Models
     public class TheWorldContextSeedData
     {
         private TheWorldContext _context;
+        private UserManager<TheWorldUser> _userManager;
 
-        public TheWorldContextSeedData(TheWorldContext context)
+        public TheWorldContextSeedData(TheWorldContext context,UserManager<TheWorldUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
-        public void EnsureSeedData()
+        public async Task EnsureSeedDataAsync()
         {
+            if(await _userManager.FindByEmailAsync("chshandroid@gmail.com")==null)
+            {
+                var newUser = new TheWorldUser() {
+                    UserName="chshandroid",
+                    Email="chshandroid@gmail.com"
+                };
+
+                await _userManager.CreateAsync(newUser, "P@ssword1");
+
+            }
+
             if (!_context.Trips.Any())
             {
                 // Add new Data
@@ -22,7 +36,7 @@ namespace WebApplication3.Models
                 {
                     Name = "US Trip",
                     Created = DateTime.UtcNow,
-                    UserName = "",
+                    UserName = "chshandroid",
                     Stops = new List<Stop>()
           {
             new Stop() {  Name = "Atlanta, GA", Arrival = new DateTime(2014, 6, 4), Latitude = 33.748995, Longitude = -84.387982, Order = 0 },
@@ -41,7 +55,7 @@ namespace WebApplication3.Models
                 {
                     Name = "World Trip",
                     Created = DateTime.UtcNow,
-                    UserName = "",
+                    UserName = "chshandroid",
                     Stops = new List<Stop>()
           {
             new Stop() { Order = 0, Latitude =  33.748995, Longitude =  -84.387982, Name = "Atlanta, Georgia", Arrival = DateTime.Parse("Jun 3, 2014") },

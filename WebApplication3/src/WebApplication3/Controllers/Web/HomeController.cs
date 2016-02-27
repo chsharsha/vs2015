@@ -7,6 +7,7 @@ using WebApplication3.Models;
 using WebApplication3.Services;
 using WebApplication3.ViewModels;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNet.Authorization;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -29,11 +30,18 @@ namespace WebApplication3.Controllers.Web
         public IActionResult Index()
         {
 
+            return View();
+        }
+        //}
+
+        [Authorize]    
+        public IActionResult Trips()
+        {
+
             _logger.LogInformation("You are in index");
             var trips = _repository.GetAllTrips();
             return View(trips);
         }
-        //}
 
 
         public IActionResult About()

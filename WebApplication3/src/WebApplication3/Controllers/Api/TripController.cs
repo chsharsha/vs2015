@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using Microsoft.AspNet.Authorization;
 using Microsoft.AspNet.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,18 +12,22 @@ using WebApplication3.ViewModels;
 
 namespace WebApplication3.Controllers.Api
 {
+    [Authorize]
     public class TripController : Controller
     {
+        private ILogger<TripController> _logger;
         private ITheWorldRepository _repository;
+        
 
-        public TripController(ITheWorldRepository repository)
+        public TripController(ITheWorldRepository repository,ILogger<TripController> logger)
         {
             _repository = repository;
+            _logger = logger;
         }
         [HttpGet("api/trips")]
         public JsonResult Get()
         {
-            var results = _repository.GetAllTripsWithStops();
+            var results = Mapper.Map<IEnumerable<TripViewModel>>(_repository.GetUserTripsWithStops(User.Identity.Name));
             return Json(results);
         }
 
@@ -34,14 +40,25 @@ namespace WebApplication3.Controllers.Api
                 if (ModelState.IsValid)
                 {
                     var tripObj = Mapper.Map<Trip>(tvm);
-                    Response.StatusCode = (int)HttpStatusCode.Created;
-                    return Json(true);
+                    tripObj.UserName = User.Identity.Name;
+                    _repository.AddTrip(tripObj);
+
+                    if (_repository.SaveAll())
+                    {
+                        Response.StatusCode = (int)HttpStatusCode.Created;
+                        return Json(Mapper.Map<TripViewModel>(tripObj));
+                    }
+                    else
+                    {
+                        throw new Exception("Error while saving the database");
+                    }
+                    
                 }
                 else
                 {
-                    Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                    return Json(ModelState);
+                    throw new Exception("Model state is not valid");
                 }
+                
             }
             catch(Exception ex)
             {
