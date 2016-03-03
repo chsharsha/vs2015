@@ -1,0 +1,1 @@
+﻿2016-02-29 21:06:26.908 -05:00 [Warning] Authorization failed for the request at filter '"Microsoft.AspNet.Mvc.Filters.AuthorizeFilter"'.

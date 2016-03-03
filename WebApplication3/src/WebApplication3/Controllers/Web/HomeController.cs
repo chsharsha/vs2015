@@ -38,9 +38,8 @@ namespace WebApplication3.Controllers.Web
         public IActionResult Trips()
         {
 
-            _logger.LogInformation("You are in index");
-            var trips = _repository.GetAllTrips();
-            return View(trips);
+           
+            return View();
         }
 
 

@@ -143,3 +143,4 @@ System.InvalidOperationException: No authentication handler is configured to han
 2016-02-27 15:55:05.531 -05:00 [Error] Object reference not set to an instance of an object.
 2016-02-27 16:29:18.662 -05:00 [Warning] Authorization failed for the request at filter '"Microsoft.AspNet.Mvc.Filters.AuthorizeFilter"'.
 2016-02-27 16:29:22.808 -05:00 [Warning] Authorization failed for the request at filter '"Microsoft.AspNet.Mvc.Filters.AuthorizeFilter"'.
+2016-02-27 17:07:09.880 -05:00 [Warning] Authorization failed for the request at filter '"Microsoft.AspNet.Mvc.Filters.AuthorizeFilter"'.
