@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7EF74157-A602-4B5C-A36A-B545BD661256}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TwitterTrial.DBContext</RootNamespace>
+    <AssemblyName>TwitterTrial.DBContext</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Migrations\201603270129286_Ident.cs" />
+    <Compile Include="Migrations\201603270129286_Ident.Designer.cs">
+      <DependentUpon>201603270129286_Ident.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603270142372_ChangeNames.cs" />
+    <Compile Include="Migrations\201603270142372_ChangeNames.Designer.cs">
+      <DependentUpon>201603270142372_ChangeNames.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603270404345_RemoveEnum.cs" />
+    <Compile Include="Migrations\201603270404345_RemoveEnum.Designer.cs">
+      <DependentUpon>201603270404345_RemoveEnum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603270416466_RemoveUserName.cs" />
+    <Compile Include="Migrations\201603270416466_RemoveUserName.Designer.cs">
+      <DependentUpon>201603270416466_RemoveUserName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603270427352_ShuffleForeignKeys.cs" />
+    <Compile Include="Migrations\201603270427352_ShuffleForeignKeys.Designer.cs">
+      <DependentUpon>201603270427352_ShuffleForeignKeys.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603270445470_CheckOne.cs" />
+    <Compile Include="Migrations\201603270445470_CheckOne.Designer.cs">
+      <DependentUpon>201603270445470_CheckOne.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603270545454_ChangetoFullName.cs" />
+    <Compile Include="Migrations\201603270545454_ChangetoFullName.Designer.cs">
+      <DependentUpon>201603270545454_ChangetoFullName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="TwitterDbContext.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TwitterTrial.Entities\TwitterTrial.Entities.csproj">
+      <Project>{30fbc8a2-9bd7-4317-a45c-0eccd3812634}</Project>
+      <Name>TwitterTrial.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201603270129286_Ident.resx">
+      <DependentUpon>201603270129286_Ident.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603270142372_ChangeNames.resx">
+      <DependentUpon>201603270142372_ChangeNames.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603270404345_RemoveEnum.resx">
+      <DependentUpon>201603270404345_RemoveEnum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603270416466_RemoveUserName.resx">
+      <DependentUpon>201603270416466_RemoveUserName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603270427352_ShuffleForeignKeys.resx">
+      <DependentUpon>201603270427352_ShuffleForeignKeys.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603270445470_CheckOne.resx">
+      <DependentUpon>201603270445470_CheckOne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603270545454_ChangetoFullName.resx">
+      <DependentUpon>201603270545454_ChangetoFullName.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

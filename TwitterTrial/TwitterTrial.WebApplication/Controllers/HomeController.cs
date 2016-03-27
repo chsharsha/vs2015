@@ -58,6 +58,7 @@ namespace TwitterTrial.WebApplication.Controllers
         [HttpPost]
         public async Task<JsonResult> Register(RegisterNewUser rvm)
         {
+
             if (ModelState.IsValid)
             {
                 var user = new TwitterUser { UserFullName = rvm.FullName, Email = rvm.Email, TwitterUserName = rvm.TwitterName };
