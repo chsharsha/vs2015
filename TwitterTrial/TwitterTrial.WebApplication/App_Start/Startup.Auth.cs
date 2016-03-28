@@ -23,6 +23,7 @@ namespace TwitterTrial.WebApplication
             app.CreatePerOwinContext(TwitterDbContext.Create);
             app.CreatePerOwinContext<AppUserManager>(AppUserManager.Create);
             app.CreatePerOwinContext<TwitterAppSignInManager>(TwitterAppSignInManager.Create);
+            
 
             // Enable the application to use a cookie to store information for the signed in user
             // and to use a cookie to temporarily store information about a user logging in with a third party login provider

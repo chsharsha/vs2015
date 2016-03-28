@@ -14,6 +14,7 @@ namespace TwitterTrial.Identity
 {
     public class TwitterAppSignInManager : SignInManager<TwitterUser, string>
     {
+       
         public TwitterAppSignInManager(AppUserManager userManager, IAuthenticationManager authenticationManager)
             : base(userManager, authenticationManager)
         {

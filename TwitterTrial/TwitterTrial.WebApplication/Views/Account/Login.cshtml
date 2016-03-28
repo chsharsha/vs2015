@@ -1,0 +1,33 @@
+﻿@model TwitterTrial.ViewModels.LoginViewModel
+@{
+    ViewBag.Title = "Login";
+}
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <h3>Login</h3>
+        <form method="post" action="@Url.Action("Login", "Account")">
+            <div validation-summary="ValidationSummary.ModelOnly"></div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+
+                <input type="submit" value="Login" class="btn btn-success" />
+
+            </div>
+        </form>
+    </div>
+</div>

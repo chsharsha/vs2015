@@ -6,25 +6,35 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using TwitterTrial.DBContext;
 using TwitterTrial.Entities;
+using TwitterTrial.Interfaces;
 
 namespace TwitterTrial.Implementations
 {
-    public class TweetManagement
+    public class TweetManagement : ITweetManagement
     {
        public TwitterDbContext GetDBContext()
         {
             return TwitterDbContext.Create();
         }
 
-        public Tweet SendTweet(Tweet msg)
+
+        public List<Tweet> GetTweets(string userID)
         {
             using (var db = GetDBContext())
             {
+                return db.Tweets.Where(x => x.TwitterUserID == userID).ToList();
+            }
+        }
+        public void SendTweet(Tweet msg)
+        {
+            using (var db = GetDBContext())
+            {
+                msg.TimeParsed = DateTime.Now; 
                 
                 
-                db.Tweets.Add(msg);
                 var embeddedHandles = ExtractTwitterHandles(msg.TweetMessage);
-
+                msg.TweetMsgMode = embeddedHandles.Count == 0 ? 3 : 2;
+                db.Tweets.Add(msg);
                 if (embeddedHandles.Count>0)
                 {
                     foreach(var handle in embeddedHandles)
@@ -34,7 +44,7 @@ namespace TwitterTrial.Implementations
                 }
 
                 db.SaveChanges();
-                return msg;
+                
                 
             }
         }

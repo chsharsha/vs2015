@@ -38,11 +38,10 @@ namespace TwitterTrial.NUnitTests
         {
             Implementations.TweetManagement tm = new TweetManagement();
             Tweet t = new Tweet();
-            
-            
-            t.TwitterUserID = "9cc0efb5-15fa-4ccf-9440-5f25a35fdfc3";
+                      
+            t.TwitterUserID = "08c132ac-302e-49a7-b458-2ae862dfe767";
             t.TimeParsed = DateTime.Now;
-            t.TweetMessage = "Second Tweet";
+            t.TweetMessage = "@chsharsha2 This is my last tweet for the test";
             t.TweetMsgMode = 1;
             //var x=tm.SendTweet(t);
             using (var con = TwitterDbContext.Create())
@@ -51,6 +50,13 @@ namespace TwitterTrial.NUnitTests
                 con.Tweets.Add(t);
                 con.SaveChanges();
             }
+        }
+
+        [Test]
+        public void GetTweet()
+        {
+            TweetManagement tm = new TweetManagement();
+            var m=tm.GetTweets("9cc0efb5-15fa-4ccf-9440-5f25a35fdfc3");
         }
 
 

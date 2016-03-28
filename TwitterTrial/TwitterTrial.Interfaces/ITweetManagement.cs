@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TwitterTrial.Entities;
 
 namespace TwitterTrial.Interfaces
 {
     public interface ITweetManagement
     {
-        void SendTweet(string TweetMessage);
+        void SendTweet(Tweet TweetMessage);
 
-        void GetTweet();
+        List<Tweet> GetTweets(string userID);
     }
 }

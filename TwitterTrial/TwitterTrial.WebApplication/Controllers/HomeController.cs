@@ -8,9 +8,13 @@ using TwitterTrial.ViewModels;
 using Microsoft.AspNet.Identity.Owin;
 using TwitterTrial.Entities;
 using System.Threading.Tasks;
+using TwitterTrial.Interfaces;
+using TwitterTrial.Implementations;
 
 namespace TwitterTrial.WebApplication.Controllers
 {
+
+    [Authorize]
     public class HomeController : Controller
     {
 
@@ -18,7 +22,7 @@ namespace TwitterTrial.WebApplication.Controllers
         private AppUserManager _userManager;
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("SendTweet","Home");
         }
         public HomeController()
         {
@@ -55,26 +59,33 @@ namespace TwitterTrial.WebApplication.Controllers
             }
         }
 
-        [HttpPost]
-        public async Task<JsonResult> Register(RegisterNewUser rvm)
+       
+        public ActionResult SendTweet()
         {
+            ITweetManagement tm = new TweetManagement();
+            var m = User.Identity.Name;
+            var user = UserManager.FindByNameAsync(User.Identity.Name).Result.Id;
+            var tweets = tm.GetTweets(user).OrderByDescending(t=>t.TweetID).ToList();
 
-            if (ModelState.IsValid)
-            {
-                var user = new TwitterUser { UserFullName = rvm.FullName, Email = rvm.Email, TwitterUserName = rvm.TwitterName };
-                var result = await UserManager.CreateAsync(user, rvm.Password);
-                if (result.Succeeded)
-                {
-                    await SignInManager.SignInAsync(user, false, false);
-                    return Json(true);
-                }
-                else
-                    return Json(false);
-                
-            }
-
-            return Json(false);
+            return View(tweets);
         }
+
+
+        
+
+        [HttpPost]
+        public JsonResult SendTweetPost(Tweet t)
+        {
+            var m = User.Identity.Name;
+            var user = UserManager.FindByNameAsync(User.Identity.Name).Result.Id;
+            t.TwitterUserID = user;
+            ITweetManagement tm = new TweetManagement();
+            tm.SendTweet(t);
+            return Json("Success");
+        }
+
+
+
 
         public ActionResult About()
         {
